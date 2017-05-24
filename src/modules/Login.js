@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 @connect((state) => ({isAuth: state.user.isAuth}), {setUser})
 class LoginPage extends React.Component {
   state = {
+    loginDisplay: true,
     username: '',
     password: ''
   }
@@ -19,6 +20,10 @@ class LoginPage extends React.Component {
   	e.preventDefault();
   	this.props.setUser(this.state);
   }
+  createAcc = (e) => {
+    e.preventDefault();
+    this.setState({loginDisplay: !this.state.loginDisplay})
+  }
   render() {
     return (
     	<Container>
@@ -27,18 +32,41 @@ class LoginPage extends React.Component {
             <meta name="" content="" />
           </Helmet>
       		<LoginForm onSubmit={this.onSubmit}>
-            <Row>
-              <Input s={6} label="Förnamn" />
-              <Input s={6} label="Efternamn" />
-
-              <Input type="password" label="lösenord" s={12} />
-              <Input type="email" label="e-post" s={12} />
-            </Row>
-              <Button style={{backgroundColor: '#EA454B'}} waves='light'>Logga in</Button>
+          {
+            this.state.loginDisplay
+                ? <LoginLayout />
+                : <CreateLayout />
+          }
+          {
+            this.state.loginDisplay
+                ? <span><Button style={{backgroundColor: '#EA454B'}} waves='light'>Logga in</Button> <Button onClick={this.createAcc} style={{backgroundColor: '#EA454B', marginLeft: '10px'}} waves='light'>Skapa</Button></span>
+                : <Button onClick={this.createAcc} style={{backgroundColor: '#EA454B', marginLeft: '10px'}} waves='light'>Skapa</Button>
+          }
           </LoginForm>
     	</Container>
     );
   }
+}
+const LoginLayout = () => {
+  return (
+        <Row>
+          <Input s={12} label="Användarnamn" />
+
+          <Input type="password" label="Lösenord" s={12} />
+        </Row>
+  )
+}
+const CreateLayout = () => {
+  return (
+      <Row>
+        <Input s={6} label="Användarnamn" />
+        <Input s={6} label="Visnings Namn" />
+        <Input type="text" label="E-port" s={12} />
+
+        <Input type="password" label="Lösenord" s={12} />
+        <Input type="password" label="Lösenord igen" s={12} />
+      </Row>
+  )
 }
 
 export default LoginPage

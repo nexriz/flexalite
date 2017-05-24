@@ -28,11 +28,14 @@ export default class Home extends React.Component {
 
           </ul>
         </InfoCard>
+        <Space />
       </Container>
     );
   }
 }
-
+const Space = styled.div`
+  height: 50px;
+`
 const Container = styled.div`
   padding-top: 80px;
 	position: fixed;

@@ -3,13 +3,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export default ({header, location, history}) => {
-    console.log(location, history)
     return (
         <Navbar>
         <Contain>
           {location.pathname !== '/' ? <BackButton onClick={history.goBack}>{"<"}</BackButton> : null}
           <Header>
-            {LocationHeader(location.pathname)} {location.pathname === '/kort' ? <Link to="/kort/23"> | Länk 23</Link> : null}
+            {LocationHeader(location.pathname)}
           </Header>
         </Contain>
         </Navbar>
@@ -30,7 +29,6 @@ const BackButton = styled.div`
   position: absolute;
   font-size: 28px;
   transform: translate(2px, -7px)
-  background-color: black;
   cursor: pointer;
   color: white;
   user-select: none;

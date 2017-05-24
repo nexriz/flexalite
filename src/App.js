@@ -11,6 +11,7 @@ import Cards from './modules/Cards';
 import Favorite from './modules/Favorite';
 import Profile from './modules/Profile';
 import Create from './modules/Create';
+import CardFullscreen from './modules/CardFullscreen';
 
 import NavbarBottom from './components/NavbarBottom';
 import patternsport from './Sports.png';
@@ -46,16 +47,18 @@ export default class App extends React.Component {
 							        	transform: `translateX(${styles.translateX}%)`, 
 							        	opacity: `${styles.opacity}`, position: 'fixed', 
 							        	left: '0', 
-							        	right: '0'
+							        	right: '0',
+							        	height: '100%'
 						        })}>
 							      <Switch key={location.key} location={location}>
 				    				<Route exact path="/" component={Home}/>		
 				    				<Route exact path="/kort" component={Cards}/>
+				    				<Route path="/kort/:id" component={CardFullscreen}/>
 								    <Route path="/skapa" component={Authenticate(Create)} />	    
 								    <Route path="/favoriter" component={Authenticate(Favorite)}/>	    
 								    <Route path="/profil" component={Authenticate(Profile)}/>	    
 								    <Route path="/login" component={Login} />
-								   </Switch>
+								  </Switch>
 								</RouteTransition>
 							<NavbarBottom isAuth={isAuth && isAuth}/>
 						</Page>
@@ -65,7 +68,6 @@ export default class App extends React.Component {
     );
   }
 }
-
 
 const Page = styled.main`
 `;

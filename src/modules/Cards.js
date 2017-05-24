@@ -32,9 +32,8 @@ export default class CardComponent extends React.Component {
 		          <title>Flexa Lite - Kort</title>
 		          <meta name="" content="" />
 		        </Helmet>
-				<Route key="dawd" path="/kort/:id"/>
 				<CardsContainer>
-						<InfiniteScroll cards={this.props.cards} closeColl={this.closeColl} onSortEnd={this.onSortEnd}/>
+						<InfiniteScroll history={this.props.history} cards={this.props.cards} closeColl={this.closeColl} onSortEnd={this.onSortEnd}/>
 				</CardsContainer>
 			</Container>
 		)
@@ -55,8 +54,9 @@ const Container = styled.div`
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 `;
 
-const InfiniteScroll = ({ cards, closeColl, onSortEnd }) => {
+const InfiniteScroll = ({ cards, closeColl, onSortEnd, history }) => {
 	return <CardList
+			history={history}
 			cards={cards} 
 			closeColl={closeColl} 
 			onSortEnd={onSortEnd}
@@ -65,14 +65,15 @@ const InfiniteScroll = ({ cards, closeColl, onSortEnd }) => {
 }
 
 
-const CardList = SortableContainer(({cards}) => {
+const CardList = SortableContainer(({cards, history}) => {
 	return <StyledVirtualList
+
 			    width='auto'
 			    height={window.innerHeight - 117}
 			    itemCount={cards.length}
 			    itemSize={205}
 			    scrollDirection='vertical'
-			    renderItem={({index, style}) => <Card style={style} key={`item-${index}`} index={index} myKey={index} props={cards[index]} />}
+			    renderItem={({index, style}) => <Card history={history} style={style} key={`item-${index}`} index={index} myKey={index} props={cards[index]} />}
 		    />
 	}
 )

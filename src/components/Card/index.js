@@ -10,12 +10,12 @@ import CardPicture from './CardPicture';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import Event from '../Event';
 
- export default SortableElement(({props, myKey, style}) => {
+ export default SortableElement(({props, myKey, style, history}) => {
   	const { color } = props;	
     	return (
     		<li style={{...style }}>
 	        	<CardContainer color={color}>
-	        		<Swiper {...props} myKey={myKey} />
+	        		<Swiper {...props} history={history} myKey={myKey} />
 	            </CardContainer>
     		</li>
         );
@@ -24,7 +24,8 @@ import Event from '../Event';
 class Swiper extends React.Component {
 	next = (e) => {
 		e.preventDefault();
-		this.refs.reactswipe.next();
+		this.props.history.push('/kort/23')
+		//this.refs.reactswipe.next();
 	}
 	prev = (e) => {
 		e.preventDefault();
