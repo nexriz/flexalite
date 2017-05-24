@@ -11,6 +11,7 @@ export default class Home extends React.Component {
           <title>Flexa Lite - Hem</title>
           <meta name="" content="" />
         </Helmet>
+
       	<InfoCard>
       		<h4 style={{textAlign: 'center'}}>Välkommen</h4>
       		<ul style={{padding: '25px'}}>
@@ -33,11 +34,24 @@ export default class Home extends React.Component {
     );
   }
 }
+
+class VideoPlayer extends React.Component {
+  render() {
+    return (
+      <video 
+        width="200"
+        height="200">
+            <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" type="video/mp4" />
+      </video>
+    )
+  }
+}
+
 const Space = styled.div`
   height: 50px;
 `
 const Container = styled.div`
-  padding-top: 80px;
+  padding-top: 60px;
 	position: fixed;
 	left: 0;
 	right: 0;
@@ -45,11 +59,12 @@ const Container = styled.div`
 `;
 const InfoCard = styled.div`
 	margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
 	width: 320px;
 	min-height: 350px;
 	border-radius: 2px;
 	overflow: scroll;
 	background-color: ${props => props.color ? props.color : '#fffde7'};
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.04);
 `
+//  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);

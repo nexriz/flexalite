@@ -28,7 +28,8 @@ function LocationHeader(locations) {
 const BackButton = styled.div`
   position: absolute;
   font-size: 28px;
-  transform: translate(2px, -7px)
+  margin-left: 10px;
+  transform: translate(0, -7px)
   cursor: pointer;
   color: white;
   user-select: none;

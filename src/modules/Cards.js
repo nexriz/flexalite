@@ -33,7 +33,7 @@ export default class CardComponent extends React.Component {
 		          <meta name="" content="" />
 		        </Helmet>
 				<CardsContainer>
-						<InfiniteScroll history={this.props.history} cards={this.props.cards} closeColl={this.closeColl} onSortEnd={this.onSortEnd}/>
+						<InfiniteScroll key={'awdawd'} history={this.props.history} cards={this.props.cards} closeColl={this.closeColl} onSortEnd={this.onSortEnd}/>
 				</CardsContainer>
 			</Container>
 		)

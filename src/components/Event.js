@@ -33,7 +33,7 @@ export default class Event extends React.Component {
 	_getElement = id => document.getElementById(id)
 	render() {
 		const { id } = this.state;
-		return React.cloneElement(React.Children.only(this.props.children), { id })
+		return <span id={id}>{React.cloneElement(React.Children.only(this.props.children))}</span>
   	}
 }
 

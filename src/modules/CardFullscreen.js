@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from "react-helmet";
+import { Player, ControlBar, ReplayControl,
+  ForwardControl, CurrentTimeDisplay,
+  TimeDivider, PlaybackRateMenuButton, VolumeMenuButton
+} from 'video-react';
+import "video-react/dist/video-react.css";
 
 
 export default class CardFullscreen extends React.Component {
@@ -12,22 +17,13 @@ export default class CardFullscreen extends React.Component {
           <meta name="" content="" />
         </Helmet>
         <CardBox>
-          <VideoContainer>
-            <video style={{maxWidth: '400px'}} controls>
-              <source src="https://media.giphy.com/media/26xBFigHfSls66eMU/giphy.mp4" type="video/mp4"/>
-              <source src="movie.ogg" type="video/ogg"/>
-            </video>
-          </VideoContainer>
+          <Videoplayer />
         </CardBox>
-        <InfoContainer style={{height: `${window.innerHeight - 390}px`}}>
+        <InfoContainer style={{height: `${window.innerHeight - 300}px`}}>
           <InfoCard color="#e8f5e9">
-            <h4 style={{textAlign: 'center'}}>Välkommen</h4>
+            <h4 style={{textAlign: 'center'}}>Kort Info</h4>
             <ul style={{padding: '25px'}}>
-              <li>Träningskort - 50%</li>
-              <li>Navigering - 100%</li>
-              <li>Kort skapare - 20%</li>
-              <li>Annat - ... inc</li>
-              <li>Total - 30%</li>
+              <li>Koncept</li>
             </ul>
           </InfoCard>
           <InfoCard color="#fbe9e7">
@@ -51,11 +47,31 @@ export default class CardFullscreen extends React.Component {
 
             </ul>
           </InfoCard>
+          <div style={{height: '40px'}}/>
         </InfoContainer>
       </Container>
     );
   }
 }
+function Videoplayer({src, poster}) {
+  return (
+      <VideoContainer>
+          <Player
+            src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            playsInline={true}
+            poster="https://www.mathiaszachau.com/wp-content/uploads/2016/07/bygg-underarmar-och-greppstyrka-e1468830512143.jpg">
+            <ControlBar disabled>
+              <ReplayControl seconds={10} order={1.1} />
+              <ForwardControl seconds={10} order={1.2} />
+              <CurrentTimeDisplay disabled />
+              <TimeDivider disabled />
+              <VolumeMenuButton disabled />
+            </ControlBar>
+          </Player>
+        </VideoContainer>   
+    );
+}
+
 const InfoCard = styled.div`
   margin: auto;
   max-width: 400px;
@@ -64,27 +80,33 @@ const InfoCard = styled.div`
   border-radius: 2px;
   overflow: scroll;
   background-color: ${props => props.color ? props.color : '#fffde7'};
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  
 `
-
+// box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
 const InfoContainer = styled.div`
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   overflow: scroll;
+  padding-top: 10px;
+  z-index: 200;
 `;
 const VideoContainer = styled.div`
-  margin-top: 60px;
+  margin: auto;
+  margin-top: 55px;
+  z-index: 200;
+  padding-top: 5px;
+
 `;
 const CardBox = styled.div`
-  width: 400px;
+  max-width: 400px;
   margin: auto;
 `;
 const Container = styled.div`
   z-index: 100;
   width: 100%;
   height: 100%;
-  background-color: #111111;
   margin: auto;
+  overflow: scroll;
 `;
 

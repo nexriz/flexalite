@@ -52,7 +52,7 @@ export default class App extends React.Component {
 						        })}>
 							      <Switch key={location.key} location={location}>
 				    				<Route exact path="/" component={Home}/>		
-				    				<Route exact path="/kort" component={Cards}/>
+				    				<Route exact static path="/kort" component={Cards}/>
 				    				<Route path="/kort/:id" component={CardFullscreen}/>
 								    <Route path="/skapa" component={Authenticate(Create)} />	    
 								    <Route path="/favoriter" component={Authenticate(Favorite)}/>	    
@@ -84,6 +84,9 @@ injectGlobal`
 		user-select: none;
 		-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
 		list-style-type: none;
+	}
+	*:focus {
+    	outline: none;
 	}
 	a {
 		color: rgba(255,255,255,1);

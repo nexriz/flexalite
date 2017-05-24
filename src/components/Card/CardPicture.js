@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export default function CardPicture({ picture }) {
 		return (
 				<Picture style={{
-						background: `url(${picture ? picture : 'http://cdn-mf0.heartyhosting.com/sites/mensfitness.com/files/_main_chest_2.jpg'}) center`,
+						background: `url(${picture || 'http://cdn-mf0.heartyhosting.com/sites/mensfitness.com/files/_main_chest_2.jpg'}) center`,
 	 			}}/>
 
 		)

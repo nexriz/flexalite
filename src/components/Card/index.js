@@ -36,7 +36,7 @@ class Swiper extends React.Component {
 		return (
 			<ReactSwipe key={myKey} ref="reactswipe" swipeOptions={{continuous: false, startSlide: 0}}>
         		<Contain>
-	        		<CardPicture picture={picture && picture}/>
+	        		<Event add={[{ type: 'dblclick', func: this.next}]}><CardPicture picture={picture && picture}/></Event>
 	        		<CardTitle title={title} onClick={this.next}/>
 	        		<PictureInfoItems infoItems={infoItems}/>
 	        		<Handle />
