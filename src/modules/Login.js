@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { setUser } from '../components/redux/actions/userActions';
 import { Row, Input, Button } from 'react-materialize'
+import { Helmet } from "react-helmet";
 
 @connect((state) => ({isAuth: state.user.isAuth}), {setUser})
 class LoginPage extends React.Component {
@@ -21,6 +22,10 @@ class LoginPage extends React.Component {
   render() {
     return (
     	<Container>
+          <Helmet>
+            <title>Flexa Lite - Logga in</title>
+            <meta name="" content="" />
+          </Helmet>
       		<LoginForm onSubmit={this.onSubmit}>
             <Row>
               <Input s={6} label="Förnamn" />

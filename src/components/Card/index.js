@@ -4,11 +4,11 @@ import styled from 'styled-components';
 //import exerc from '../svg/exercise.svg';
 //import legdips from '../svg/legdips.svg';
 //import medal from '../svg/medal.svg';
-import corner from '../svg/corner-handle.svg';
+import corner from '../../svg/corner-handle.svg';
 import ReactSwipe from 'react-swipe';
 import CardPicture from './CardPicture';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
-import Event from './Event';
+import Event from '../Event';
 
  export default SortableElement(({props, myKey, style}) => {
   	const { color } = props;	
@@ -38,7 +38,7 @@ class Swiper extends React.Component {
 	        		<CardPicture picture={picture && picture}/>
 	        		<CardTitle title={title} onClick={this.next}/>
 	        		<PictureInfoItems infoItems={infoItems}/>
-	        		<Medal />
+	        		<Handle />
         		</Contain>
         		<Contain>
 			   		<ContentContainer>
@@ -65,9 +65,9 @@ const Contain = styled.div`
 `;
 
 
-const Medal = SortableHandle(() => <HandleIcon  width="30px" height="30px" style={{position: 'absolute'}} src={corner} alt=""/>)
+const Handle = SortableHandle(() => <HandleIcon  width="30px" height="30px" style={{position: 'absolute'}} src={corner} alt=""/>)
 const HandleIcon = styled.img`
-	transform: translate(290px, -33px) rotate(0deg);
+	transform: translate(289px, -31px) rotate(0deg);
 `;
 const CardTitle = (props) => <TitleBox><Event tap={props.onClick}><Icons className="material-icons">assessment</Icons></Event><Title>{props.title}</Title></TitleBox>
 
@@ -144,7 +144,7 @@ const InfoBox = styled.div`
 `
 const Title = styled.h3`
 	position: absolute;
-	top: 12px;
+	top: 14px;
 	left: 45px;
 	color: rgba(255,255,255,1);
 	font-size: 24px;

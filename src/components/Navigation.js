@@ -2,13 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
-export default ({header, location}) => {
+export default ({header, location, history}) => {
+    console.log(location, history)
     return (
         <Navbar>
+        <Contain>
+          {location.pathname !== '/' ? <BackButton onClick={history.goBack}>{"<"}</BackButton> : null}
           <Header>
             {LocationHeader(location.pathname)} {location.pathname === '/kort' ? <Link to="/kort/23"> | Länk 23</Link> : null}
           </Header>
+        </Contain>
         </Navbar>
     );
 }
@@ -23,10 +26,25 @@ function LocationHeader(locations) {
         return temp.charAt(0).toUpperCase() + temp.slice(1)
 }
 
+const BackButton = styled.div`
+  position: absolute;
+  font-size: 28px;
+  transform: translate(2px, -7px)
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  user-select: none;
+  z-index: 200;
+`;
+const Contain = styled.div`
+  width: 320px;
+  margin: auto; 
+`;
 const Header = styled.h4`
   font-size: 24px;
   color: white;
   text-align: center;
+  height: inherit;
 `;
 
 const Navbar = styled.header`

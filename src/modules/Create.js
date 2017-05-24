@@ -3,46 +3,33 @@ import styled from 'styled-components';
 import { Helmet } from "react-helmet";
 
 
-export default class Home extends React.Component {
+export default class Skapa extends React.Component {
   render() {
     return (
-      <Container style={{height: `${window.innerHeight - 52}px`}}>
+      <Container>
         <Helmet>
-          <title>Flexa Lite - Hem</title>
+          <title>Flexa Lite - Skapa</title>
           <meta name="" content="" />
         </Helmet>
       	<InfoCard>
-      		<h4 style={{textAlign: 'center'}}>Välkommen</h4>
+      		<h3 style={{textAlign: 'center'}}>Skapa Kort</h3>
       		<ul style={{padding: '25px'}}>
-      			<li>Träningskort - 50%</li>
-      			<li>Navigering - 100%</li>
-      			<li>Kort skapare - 20%</li>
-      			<li>Annat - ... inc</li>
-      			<li>Total - 30%</li>
+      			<li>Ej klar</li>
       		</ul>
       	</InfoCard>
-        <InfoCard>
-          <h4 style={{textAlign: 'center'}}>Uppdateringar</h4>
-          <ul style={{padding: '25px'}}>
-            <li>Layout uppdaterat</li>
-
-          </ul>
-        </InfoCard>
       </Container>
     );
   }
 }
 
 const Container = styled.div`
-  padding-top: 80px;
+	margin-top: 100px;
 	position: fixed;
 	left: 0;
 	right: 0;
-  overflow: scroll;
 `;
 const InfoCard = styled.div`
 	margin: auto;
-  margin-top: 20px;
 	width: 320px;
 	min-height: 350px;
 	border-radius: 2px;

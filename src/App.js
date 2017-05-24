@@ -8,9 +8,11 @@ import { RouteTransition } from 'react-router-transition';
 import Home from './modules/Home';
 import Login from './modules/Login';
 import Cards from './modules/Cards';
+import Favorite from './modules/Favorite';
+import Profile from './modules/Profile';
+import Create from './modules/Create';
 
 import NavbarBottom from './components/NavbarBottom';
-import CardEditor from './components/CardEditor';
 import patternsport from './Sports.png';
 import Navigation from './components/Navigation';
 
@@ -26,62 +28,46 @@ const mapStateToProps = (state) => {
 }
 @connect(mapStateToProps, { fetchCards, dispatchsortCards })
 export default class App extends React.Component {
-  _Profiler() {
-  		return (
-    		<div style={{margin: 'auto'}}>
-    			<CardEditor />
-    		</div>
-    	)
-  	}
-  _Search(test) {
-  		return (
-    		<div style={{margin: 'auto'}}>
-    			<h1 style={{textAlign: 'center', marginTop: '100px'}}>Sök</h1>
-    		</div>
-    	)
-  }
   render() {
   	const { isAuth } = this.props;
     return (
     	<Router>
-			<Page id="page">
 				<Route render={({location, history, match}) => {
 					return (
-						<div>
-							<Navigation location={location}/>
-						      <RouteTransition
-						      	component="div"
-						        pathname={location.pathname}
-						        atEnter={{ translateX: 15, opacity: 0 }}
-						        atLeave={{ translateX: 15, opacity: 0 }}
-						        atActive={{ translateX: 0, opacity: 1 }}
-						        mapStyles={styles => ({ 
-						        	transform: `translateX(${styles.translateX}%)`, 
-						        	opacity: `${styles.opacity}`, position: 'fixed', 
-						        	left: '0', 
-						        	right: '0'
-						        })}
-						      >
+						<Page id="page">
+							<Navigation location={location} history={history}/>
+						    	<RouteTransition
+							      	component="div"
+							        pathname={location.pathname}
+							        atEnter={{ translateX: 15, opacity: 0 }}
+							        atLeave={{ translateX: 15, opacity: 0 }}
+							        atActive={{ translateX: 0, opacity: 1 }}
+							        mapStyles={styles => ({ 
+							        	transform: `translateX(${styles.translateX}%)`, 
+							        	opacity: `${styles.opacity}`, position: 'fixed', 
+							        	left: '0', 
+							        	right: '0'
+						        })}>
 							      <Switch key={location.key} location={location}>
 				    				<Route exact path="/" component={Home}/>		
 				    				<Route exact path="/kort" component={Cards}/>
-								    <Route path="/skapa" component={Authenticate(this._Profiler)} />	    
-								    <Route path="/sök" component={this._Search}/>	    
+								    <Route path="/skapa" component={Authenticate(Create)} />	    
+								    <Route path="/favoriter" component={Authenticate(Favorite)}/>	    
+								    <Route path="/profil" component={Authenticate(Profile)}/>	    
 								    <Route path="/login" component={Login} />
 								   </Switch>
 								</RouteTransition>
 							<NavbarBottom isAuth={isAuth && isAuth}/>
-						</div>
+						</Page>
 					);
 				}} />
-			</Page>
     	</Router>
     );
   }
 }
 
 
-const Page = styled.div`
+const Page = styled.main`
 `;
 
 /* eslint-disable */

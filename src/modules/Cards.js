@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { SortableContainer, arrayMove } from 'react-sortable-hoc';
 import VirtualList from 'react-tiny-virtual-list';
 import { fetchCards, dispatchsortCards } from '../components/redux/actions/cardActions';
+import { Helmet } from "react-helmet";
 
 import Card from '../components/Card';
 
@@ -17,7 +18,6 @@ const mapStateToProps = (state) => {
 @connect(mapStateToProps, { fetchCards, dispatchsortCards })
 export default class CardComponent extends React.Component {
 	componentWillMount() {
-		console.log(this.props)
   		this.props.fetchCards({})
   	}
 	onSortEnd = ({oldIndex, newIndex}) => {
@@ -28,6 +28,10 @@ export default class CardComponent extends React.Component {
 	render() {
 		return (
 			<Container>
+		        <Helmet>
+		          <title>Flexa Lite - Kort</title>
+		          <meta name="" content="" />
+		        </Helmet>
 				<Route key="dawd" path="/kort/:id"/>
 				<CardsContainer>
 						<InfiniteScroll cards={this.props.cards} closeColl={this.closeColl} onSortEnd={this.onSortEnd}/>
@@ -47,24 +51,24 @@ const CardsContainer = styled.div`
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 `;
 const Container = styled.div`
-	margin-top: 65px;
+	margin-top: 64px;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 `;
 
 const InfiniteScroll = ({ cards, closeColl, onSortEnd }) => {
-	return <Cards 
+	return <CardList
 			cards={cards} 
 			closeColl={closeColl} 
 			onSortEnd={onSortEnd}
 			useDragHandle={true}
-			useWindowAsScrollContainer={true}/>
+			lockAxis="y"/>
 }
 
 
-const Cards = SortableContainer(({cards}) =>{
+const CardList = SortableContainer(({cards}) => {
 	return <StyledVirtualList
 			    width='auto'
-			    height={window.innerHeight - 118}
+			    height={window.innerHeight - 117}
 			    itemCount={cards.length}
 			    itemSize={205}
 			    scrollDirection='vertical'

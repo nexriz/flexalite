@@ -11,13 +11,9 @@ export default function CardPicture({ picture }) {
 		)
 }
 
-
-
 const Picture = styled.div`
 	height: 200px;
 	max-width: 100%;
 	background-size: cover!important;
-	border-bottom: 1px solid rgba(0,0,0,0.5);
-	border-top: 1px solid rgba(0,0,0,0.2);
 	transition: filter 0.3s
 `;

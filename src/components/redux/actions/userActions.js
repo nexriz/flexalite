@@ -27,10 +27,11 @@ export function login(user) {
 	}
 }
 
+
 export function logout() {
 	return dispatch => {
 		localStorage.removeItem('jwtToken');
 		setAuthorizationToken(false);
-		dispatch(setCurrentUser(false));
+		dispatch(setCurrentUser(null));
 	}
 }
