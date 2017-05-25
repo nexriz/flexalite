@@ -5,54 +5,35 @@ import styled from 'styled-components';
 //import legdips from '../svg/legdips.svg';
 //import medal from '../svg/medal.svg';
 import corner from '../../svg/corner-handle.svg';
-import ReactSwipe from 'react-swipe';
 import CardPicture from './CardPicture';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import Event from '../Event';
 
- export default SortableElement(({props, myKey, style, history}) => {
+ export default SortableElement(({props, style, history}) => {
   	const { color } = props;	
     	return (
     		<li style={{...style }}>
 	        	<CardContainer color={color}>
-	        		<Swiper {...props} history={history} myKey={myKey} />
+	        		<Card props={props} history={history} />
 	            </CardContainer>
     		</li>
         );
 })
 
-class Swiper extends React.Component {
-	next = (e) => {
+const Card = ({props, history}) => {
+	const next = (e) => {
 		e.preventDefault();
-		this.props.history.push('/kort/23')
-		//this.refs.reactswipe.next();
+		history.push('/kort/23')
 	}
-	prev = (e) => {
-		e.preventDefault();
-		this.refs.reactswipe.prev();
-	}
-	render() {
-  	const { title, picture, infoItems, author, myKey } = this.props;	
+  	const { title, picture, infoItems} = props;	
 		return (
-			<ReactSwipe key={myKey} ref="reactswipe" swipeOptions={{continuous: false, startSlide: 0}}>
-        		<Contain>
-	        		<Event add={[{ type: 'dblclick', func: this.next}]}><CardPicture picture={picture && picture}/></Event>
-	        		<CardTitle title={title} onClick={this.next}/>
-	        		<PictureInfoItems infoItems={infoItems}/>
-	        		<Handle />
-        		</Contain>
-        		<Contain>
-			   		<ContentContainer>
-
-				    </ContentContainer>
-			   		<i style={{position: 'absolute', marginLeft: '30px'}} className="material-icons" onClick={this.prev}>fast_rewind</i>
-				    <CardFooter>
-	    		   	 <Author>Skapad av: {author ? author : 'Viktor Lott'}</Author>
-	    		   </CardFooter>
-        		</Contain>
-        	</ReactSwipe>
+    		<Contain>
+        		<Event add={[{ type: 'dblclick', func: next}]}><CardPicture picture={picture && picture}/></Event>
+        		<CardTitle title={title} onClick={next}/>
+        		<PictureInfoItems infoItems={infoItems}/>
+        		<Handle />
+    		</Contain>
 		);
-	}
 }
 
 
@@ -82,35 +63,21 @@ const PictureInfoItems = ({infoItems}) => infoItems
 
 
 
-const Author = styled.a`
-	font-size: 10px;
-	padding-left: 10px;
-	color: rgba(0,0,0,0.5);
-`;
 
-const CardFooter = styled.div`
-	width: 100%;
-	height: 20px;
-	margin-bottom: 0;
-	margin-top: 40px;
-`;
+
 
 const Icons = styled.i`
+	position: absolute;
+	top: 15px;
+	left: 12px;
 	color: white;
-	float: left;
-	margin-top: 15px;
-	margin-left: 10px;
-	margin-right: 10px;
  	cursor: pointer;
  	&:hover {
  		color: #EA454B;
  	}
 `;
 
-const ContentContainer = styled.div`
-	margin: 10px;
-	margin-top: 0px;
-`;
+
 
 const InfoItem = styled.div`
 	height: 20px;
@@ -158,10 +125,10 @@ const Title = styled.h3`
 	text-shadow: 0 0 10px rgba(0,0,0,0.5);
 `;
 const TitleBox = styled.div`
+	position: absolute;
+	top: 0;
 	width: inherit;
 	height: 50px;
-	transform: translate(0, -200px)
-	position: absolute;
 	background-color: rgba(0,0,0,0);
 `;
 // #37474f

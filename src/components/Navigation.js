@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export default ({header, location, history}) => {
     return (
@@ -27,9 +26,9 @@ function LocationHeader(locations) {
 
 const BackButton = styled.div`
   position: absolute;
+  top: 10px;
   font-size: 28px;
   margin-left: 10px;
-  transform: translate(0, -7px)
   cursor: pointer;
   color: white;
   user-select: none;

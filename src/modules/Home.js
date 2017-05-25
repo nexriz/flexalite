@@ -35,17 +35,6 @@ export default class Home extends React.Component {
   }
 }
 
-class VideoPlayer extends React.Component {
-  render() {
-    return (
-      <video 
-        width="200"
-        height="200">
-            <source src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" type="video/mp4" />
-      </video>
-    )
-  }
-}
 
 const Space = styled.div`
   height: 50px;

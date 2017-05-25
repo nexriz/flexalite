@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { SortableContainer, arrayMove } from 'react-sortable-hoc';
 import VirtualList from 'react-tiny-virtual-list';

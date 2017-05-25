@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Helmet } from "react-helmet";
 import { Player, ControlBar, ReplayControl,
   ForwardControl, CurrentTimeDisplay,
-  TimeDivider, PlaybackRateMenuButton, VolumeMenuButton
+  TimeDivider, VolumeMenuButton
 } from 'video-react';
 import "video-react/dist/video-react.css";
 
