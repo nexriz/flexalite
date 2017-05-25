@@ -4,12 +4,12 @@ import styled from 'styled-components';
 export default ({header, location, history}) => {
     return (
         <Navbar>
-        <Contain>
-          {location.pathname !== '/' ? <BackButton onClick={history.goBack}>{"<"}</BackButton> : null}
-          <Header>
-            {LocationHeader(location.pathname)}
-          </Header>
-        </Contain>
+          <Contain>
+            {location.pathname !== '/' ? <BackButton onClick={history.goBack}>{"<"}</BackButton> : null}
+            <Header>
+              {LocationHeader(location.pathname)}
+            </Header>
+          </Contain>
         </Navbar>
     );
 }
@@ -26,7 +26,7 @@ function LocationHeader(locations) {
 
 const BackButton = styled.div`
   position: absolute;
-  top: 10px;
+  top: 5px;
   font-size: 28px;
   margin-left: 10px;
   cursor: pointer;
@@ -39,6 +39,7 @@ const Contain = styled.div`
   margin: auto; 
 `;
 const Header = styled.h4`
+  margin-top: 12px;
   font-size: 24px;
   color: white;
   text-align: center;
@@ -47,7 +48,7 @@ const Header = styled.h4`
 
 const Navbar = styled.header`
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	background-color: #111111;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 	z-index: 100;

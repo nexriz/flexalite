@@ -36,6 +36,7 @@ const Itext = styled.div`
 
 export default NavbarBottom;
 
+
 const NavBar = styled.nav`
 	position: fixed;
 	width: 100%;
