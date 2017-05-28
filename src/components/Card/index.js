@@ -51,9 +51,11 @@ const IconContainer = styled.div`
 
 `
 const InfoB = styled.div`
+	position: absolute;
+	visibility: hidden;
 	font-size: 12px;
+	font-weight: 100;
 	opacity: 0;
-	overflow: hidden;
 	position: absolute;
 	transform: translate(${props => props.x ? props.x : '-40'}px,${props => props.y ? props.y : '7'}px);
 `;
@@ -70,23 +72,26 @@ const Ic = styled.i.attrs({
 	className: 'material-icons'
 })`
  	cursor: pointer;
+ 	border: 1px solid rgba(0,0,0,0);
+ 	width: 27px;
 	transform: scale(1.3);
-
-	color: white;
+	text-shadow: 0 2px 2px 0 rgba(0,0,0,0.15), 0 1px 5px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.14);
+	color: rgba(255,255,255, 0.65);
 	&:hover {
-		color: #EA454B;
+		color: rgba(255,255,255, 0.96);
 		${InfoB} {
-			color: white;
+			visibility: visible;
 			animation: ${animateInfo} 0.1s forwards;
+			color: white;
 		}
 	}
 
 	&:focus {
-		color: white;
+		color: rgba(255,255,255, 0.8);
 	}
 	margin-top: 25px;
-	transition: color 0.2s ease-in-out;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 1px 5px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.04);
+	transition: color 0.1s ease-in-out;
+
 `;
 
 
@@ -107,10 +112,10 @@ const MIcon = Ic.extend`
 	opacity: 0.15;
 	transform: scale(3);
 	transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 1px 5px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.04);
+	text-shadow: 0 2px 2px 0 rgba(0,0,0,0.15), 0 1px 5px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.14);
 	&:hover {
 		opacity: 0.4;
-		color: #EA454B;
+		color: white;
 	}
 	&:focus {
 		color: white;
