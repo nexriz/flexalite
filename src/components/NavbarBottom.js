@@ -6,6 +6,22 @@ const NavbarBottom = ({isAuth}) => {
 	return isAuth
 		? 	<NavBar>
 				<Redirect to="/" />
+	    		<Navitem activeStyle={{color: '#EA454B'}} exact to="/"><Ic className="material-icons">home</Ic><Itext></Itext></Navitem>
+				<Navitem activeStyle={{color: '#EA454B'}} to="/kort"><Ic className="material-icons">class</Ic><Itext></Itext></Navitem>
+	    		<Navitem activeStyle={{color: '#EA454B'}} to="/skapa"><Ic className="material-icons">library_add</Ic><Itext></Itext></Navitem>
+	    		<Navitem activeStyle={{color: '#EA454B'}} to="/favoriter"><Ic className="material-icons">favorite</Ic><Itext></Itext></Navitem>
+	    		<Navitem activeStyle={{color: '#EA454B'}} to="/profil"><Ic className="material-icons">account_circle</Ic><Itext></Itext></Navitem>
+	    	</NavBar>
+	    :   <NavBar>
+	    		<Navitem activeStyle={{color: '#EA454B'}} exact to="/"><Ic className="material-icons">home</Ic><Itext></Itext></Navitem>
+				<Navitem activeStyle={{color: '#EA454B'}} to="/kort"><Ic className="material-icons">class</Ic><Itext></Itext></Navitem>
+	    		<Navitem activeStyle={{color: '#EA454B'}} to="/login"><Ic className="material-icons">input</Ic><Itext></Itext></Navitem>
+	    	</NavBar>
+}
+const NavbarBottomName = ({isAuth}) => {
+	return isAuth
+		? 	<NavBar>
+				<Redirect to="/" />
 	    		<Navitem activeStyle={{color: '#EA454B'}} exact to="/"><Ic className="material-icons">home</Ic><Itext>Hem</Itext></Navitem>
 				<Navitem activeStyle={{color: '#EA454B'}} to="/kort"><Ic className="material-icons">class</Ic><Itext style={{transform: 'translate(0, -76px)'}}>Kort</Itext></Navitem>
 	    		<Navitem activeStyle={{color: '#EA454B'}} to="/skapa"><Ic className="material-icons">library_add</Ic><Itext style={{transform: 'translate(0, -76px)'}}>Skapa</Itext></Navitem>
@@ -21,7 +37,7 @@ const NavbarBottom = ({isAuth}) => {
 
 const Ic = styled.i`
 	margin: 15px 18px;
-	transform: scale(1) translate(0, -23px);
+	transform: scale(1) translate(0, -18px);
 `;
 const Itext = styled.div`
 	color: white;

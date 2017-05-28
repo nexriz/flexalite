@@ -1,3 +1,4 @@
+
 let init = [
 	{
 		title: 'Övre Bröst',
@@ -1517,9 +1518,12 @@ export default (state=init, action) => {
 	switch(action.type) {
 		case 'ADD_CARD':
 			return [...state, ...action.payload]
-		case 'SORT_CARDS':
-			return [...action.payload]
 		default:
 			return state
 	}
+}
+
+export const filteredCards = (state='', action) => {
+	if(action.type === 'FILTER_CARDS') return 'FILTER_CARDS'
+	else return state
 }

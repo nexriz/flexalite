@@ -75,7 +75,7 @@ function Videoplayer({src, poster}) {
 const InfoCard = styled.div`
   margin: auto;
   max-width: 400px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   min-height: 350px;
   border-radius: 2px;
   overflow: scroll;
@@ -88,12 +88,12 @@ const InfoContainer = styled.div`
   left: 0;
   right: 0;
   overflow: scroll;
-  padding-top: 10px;
+  padding-top: 0px;
   z-index: 200;
 `;
 const VideoContainer = styled.div`
   margin: auto;
-  margin-top: 55px;
+  margin-top: 40px;
   z-index: 200;
   padding-top: 5px;
 

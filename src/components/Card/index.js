@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { spring, Motion } from 'react-motion';
 //import athlete from '../svg/weightlifting.svg';
 //import exerc from '../svg/exercise.svg';
 //import legdips from '../svg/legdips.svg';
@@ -8,6 +9,9 @@ import corner from '../../svg/corner-handle.svg';
 import CardPicture from './CardPicture';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import Event from '../Event';
+
+import iconchat from './chat.svg';
+import iconglass from './glass.svg';
 
  export default SortableElement(({props, style, history}) => {
   	const { color } = props;	
@@ -29,16 +33,93 @@ const Card = ({props, history}) => {
 		return (
     		<Contain>
         		<Event add={[{ type: 'dblclick', func: next}]}><CardPicture picture={picture && picture}/></Event>
-        		<CardTitle title={title} onClick={next}/>
-        		<PictureInfoItems infoItems={infoItems}/>
-        		<Handle />
+        		<CardTitle title={title}/>
+        		<Event tap={next}><Middle><MIcon>aspect_ratio</MIcon></Middle></Event>
+        		<IconContainer><Ic><InfoB x="-63" y="7">Statistik</InfoB>assessment</Ic><Ic><InfoB x="-97" y="5">Kommentarer</InfoB>comment</Ic></IconContainer>
     		</Contain>
 		);
 }
+//         		<PictureInfoItems infoItems={infoItems}/>
+
+const IconContainer = styled.div`
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	bottom: 20px;
+	right: 25px;
+	margin: auto;
+
+`
+const InfoB = styled.div`
+	font-size: 12px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	transform: translate(${props => props.x ? props.x : '-40'}px,${props => props.y ? props.y : '7'}px);
+`;
+
+const animateInfo = keyframes`
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+`;
+const Ic = styled.i.attrs({
+	className: 'material-icons'
+})`
+ 	cursor: pointer;
+	transform: scale(1.3);
+
+	color: white;
+	&:hover {
+		color: #EA454B;
+		${InfoB} {
+			color: white;
+			animation: ${animateInfo} 0.1s forwards;
+		}
+	}
+
+	&:focus {
+		color: white;
+	}
+	margin-top: 25px;
+	transition: color 0.2s ease-in-out;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 1px 5px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.04);
+`;
+
+
+// <PictureInfoItems infoItems={infoItems}/>
+
+const Middle = styled.div`
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 100px;
+	margin: auto;
+	width: 50px;
+`;
+
+const MIcon = Ic.extend`
+	position: absolute;
+	margin: 0;
+	opacity: 0.15;
+	transform: scale(3);
+	transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05), 0 1px 5px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.04);
+	&:hover {
+		opacity: 0.4;
+		color: #EA454B;
+	}
+	&:focus {
+		color: white;
+	}	
+`;
 
 
 const Contain = styled.div`
-	width: 320px;
+	max-width: 400px;
 	height: 200px;
 	border-radius: 2px;
 	overflow: hidden;
@@ -51,7 +132,7 @@ const Handle = SortableHandle(() => <HandleIcon  width="30px" height="30px" styl
 const HandleIcon = styled.img`
 	transform: translate(289px, -31px) rotate(0deg);
 `;
-const CardTitle = (props) => <TitleBox><Event tap={props.onClick}><Icons className="material-icons">assessment</Icons></Event><Title>{props.title}</Title></TitleBox>
+const CardTitle = (props) => <TitleBox><Icons className="material-icons">view_quilt</Icons><Title>{props.title}</Title></TitleBox>
 
 const PictureInfoItems = ({infoItems}) => infoItems
 										   		? <InfoBox>{infoItems.map((item, i) => <InfoItem>{item.name}</InfoItem>)}</InfoBox>
@@ -72,6 +153,8 @@ const Icons = styled.i`
 	left: 12px;
 	color: white;
  	cursor: pointer;
+ 	transform: scale(1.3);
+ 	transition: color 0.2s ease-in-out;
  	&:hover {
  		color: #EA454B;
  	}
@@ -88,7 +171,7 @@ const InfoItem = styled.div`
 	padding-left: 6px;
 	letter-spacing: 5px;
 	&:hover {
-		width: 314px;
+		max-width: 400px;
 	}
 	overflow: hidden;
 	cursor: pointer;
@@ -99,9 +182,10 @@ const InfoItem = styled.div`
 `;
 
 const InfoBox = styled.div`
+	position: absolute;
 	height: 80px;
 	width: 50px;
-	position: absolute;
+	top: 0;
 	transform: translate(0, -100px);
 	z-index: 2;
 	display: flex;
@@ -125,8 +209,6 @@ const Title = styled.h3`
 	text-shadow: 0 0 10px rgba(0,0,0,0.5);
 `;
 const TitleBox = styled.div`
-	position: absolute;
-	top: 0;
 	width: inherit;
 	height: 50px;
 	background-color: rgba(0,0,0,0);
@@ -135,7 +217,7 @@ const TitleBox = styled.div`
 
 const CardContainer = styled.div`
 	margin: auto;
-	width: 320px;
+	max-width: 400px;
 	min-height: 200px;
 	border-radius: 2px;
 	overflow: hidden;

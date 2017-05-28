@@ -33,6 +33,13 @@ const BackButton = styled.div`
   color: white;
   user-select: none;
   z-index: 200;
+  transition: color 0.3s;
+  &:hover {
+    color: #EA454B;
+  } 
+  &:focus {
+    color: #EA454B;
+  }
 `;
 const Contain = styled.div`
   width: 320px;

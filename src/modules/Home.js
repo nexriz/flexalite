@@ -5,6 +5,13 @@ import { Helmet } from "react-helmet";
 
 export default class Home extends React.Component {
   render() {
+    const Test = (e) => console.log(e)
+    const Pop = () => {
+      return Test => {
+        test('hello')
+      }
+    }
+    Pop()
     return (
       <Container style={{height: `${window.innerHeight - 52}px`}}>
         <Helmet>

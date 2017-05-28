@@ -8,6 +8,9 @@ import { Helmet } from "react-helmet";
 
 import Card from '../components/Card';
 
+
+
+
 const mapStateToProps = (state) => {
 	return {
 		cards: state.cards,
@@ -16,12 +19,14 @@ const mapStateToProps = (state) => {
 }
 @connect(mapStateToProps, { fetchCards, dispatchsortCards })
 export default class CardComponent extends React.Component {
+	constructor() {
+		super();
+	}
 	componentWillMount() {
   		this.props.fetchCards({})
   	}
 	onSortEnd = ({oldIndex, newIndex}) => {
 	  	const newCards = arrayMove(this.props.cards, oldIndex, newIndex);
-	  	this.props.dispatchsortCards(newCards);
 	  	this.setState({close: null})
   	}
 	render() {
@@ -44,12 +49,12 @@ const StyledVirtualList = styled(VirtualList)`
 `;
 
 const CardsContainer = styled.div`
-	width: 322px;
+	max-width: 400px;
 	margin: auto;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 `;
 const Container = styled.div`
-	margin-top: 64px;
+	margin-top: 52px;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 `;
 
@@ -68,9 +73,9 @@ const CardList = SortableContainer(({cards, history}) => {
 	return <StyledVirtualList
 
 			    width='auto'
-			    height={window.innerHeight - 117}
+			    height={window.innerHeight - 104}
 			    itemCount={cards.length}
-			    itemSize={205}
+			    itemSize={202}
 			    scrollDirection='vertical'
 			    renderItem={({index, style}) => <Card history={history} style={style} key={`item-${index}`} index={index} myKey={index} props={cards[index]} />}
 		    />
