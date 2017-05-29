@@ -35,10 +35,10 @@ const BackButton = styled.div`
   z-index: 200;
   transition: color 0.3s;
   &:hover {
-    color: #EA454B;
+    color: white;
   } 
   &:focus {
-    color: #EA454B;
+    color: white;
   }
 `;
 const Contain = styled.div`

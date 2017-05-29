@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled, { injectGlobal } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { RouteTransition } from 'react-router-transition';
-
+//import './modules/video.css';
 // Pages
 import Home from './modules/Home';
 import Login from './modules/Login';
@@ -105,20 +105,6 @@ injectGlobal`
 	}
 	.navbar-hide {
 		height: 0px;
-	}
-	.fade-enter {
-		opacity: 0;
-	}
-   .fade-enter-active {
-	  opacity: 1;
-	  transition: opacity 500ms ease-in;
-	}
-	.fade-leave {
-	  opacity: 1;
-	}
-    .fade-leave-active {
-	  opacity: 0.01;
-	  transition: opacity 300ms ease-in;
 	}
 	::-webkit-scrollbar { 
     display: none; 

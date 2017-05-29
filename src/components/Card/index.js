@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { spring, Motion } from 'react-motion';
+
 //import athlete from '../svg/weightlifting.svg';
 //import exerc from '../svg/exercise.svg';
 //import legdips from '../svg/legdips.svg';
@@ -9,9 +9,6 @@ import corner from '../../svg/corner-handle.svg';
 import CardPicture from './CardPicture';
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
 import Event from '../Event';
-
-import iconchat from './chat.svg';
-import iconglass from './glass.svg';
 
  export default SortableElement(({props, style, history}) => {
   	const { color } = props;	
@@ -34,19 +31,42 @@ const Card = ({props, history}) => {
     		<Contain>
         		<Event add={[{ type: 'dblclick', func: next}]}><CardPicture picture={picture && picture}/></Event>
         		<CardTitle title={title}/>
-        		<Event tap={next}><Middle><MIcon>aspect_ratio</MIcon></Middle></Event>
-        		<IconContainer><Ic><InfoB x="-63" y="7">Statistik</InfoB>assessment</Ic><Ic><InfoB x="-97" y="5">Kommentarer</InfoB>comment</Ic></IconContainer>
+        		<Event tap={next}><Middle><MIcon>visibility</MIcon></Middle></Event>
+        		<CardBox>
+        			<li>Styrka</li>
+        			<li>Flexibilitet</li>
+        			<li>Koncentration</li>
+        		</CardBox>
+        		<IconContainer><Ic><InfoB x="-63" y="7">Statistik</InfoB>assessment</Ic><Ic><InfoB x="-97" y="4">Kommentarer</InfoB>comment</Ic></IconContainer>
     		</Contain>
 		);
 }
 //         		<PictureInfoItems infoItems={infoItems}/>
 
+
+const CardBox = styled.ul`
+	position: absolute;
+	top: 75px;
+	left: 0px;
+	width: 30%;
+	max-height: 60%;
+	transform: translateX(-100px);
+	background-color: rgba(0,0,0,0);
+	padding: 10px;
+	border-radius: 2px;
+	color: rgba(255,255,255,0);
+	font-size: 10px;
+	li {
+		margin-bottom: 5px;
+		margin-left: 10px;
+	}
+`;
 const IconContainer = styled.div`
 	position: absolute;
 	display: flex;
 	flex-direction: column;
 	bottom: 20px;
-	right: 25px;
+	right: 15px;
 	margin: auto;
 
 `
@@ -65,7 +85,7 @@ const animateInfo = keyframes`
 		opacity: 0;
 	}
 	to {
-		opacity: 1;
+		opacity: 0.7;
 	}
 `;
 const Ic = styled.i.attrs({
@@ -76,12 +96,13 @@ const Ic = styled.i.attrs({
  	width: 27px;
 	transform: scale(1.3);
 	text-shadow: 0 2px 2px 0 rgba(0,0,0,0.15), 0 1px 5px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.14);
-	color: rgba(255,255,255, 0.65);
+	color: rgba(255,255,255, 0.55);
 	&:hover {
 		color: rgba(255,255,255, 0.96);
 		${InfoB} {
 			visibility: visible;
 			animation: ${animateInfo} 0.1s forwards;
+			text-shadow: 0 2px 2px 0 rgba(0,0,0,0.15), 0 1px 5px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.14);
 			color: white;
 		}
 	}
@@ -108,13 +129,16 @@ const Middle = styled.div`
 
 const MIcon = Ic.extend`
 	position: absolute;
+	padding-left: 4px;
 	margin: 0;
-	opacity: 0.15;
-	transform: scale(3);
-	transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+	opacity: 0;
+	visibility: hidden;
+	transform: scale(3.3);
+	transition: color 0.1s ease-in-out, opacity 0.3s ease-in-out, transform 0.1s ease-in-out;
 	text-shadow: 0 2px 2px 0 rgba(0,0,0,0.15), 0 1px 5px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.14);
 	&:hover {
-		opacity: 0.4;
+		opacity: 0.8;
+		transform: scale(3.5);
 		color: white;
 	}
 	&:focus {
@@ -128,6 +152,7 @@ const Contain = styled.div`
 	height: 200px;
 	border-radius: 2px;
 	overflow: hidden;
+	}
 	${props => props.shadow 
 		&& `box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);`}
 `;
@@ -139,24 +164,15 @@ const HandleIcon = styled.img`
 `;
 const CardTitle = (props) => <TitleBox><Icons className="material-icons">view_quilt</Icons><Title>{props.title}</Title></TitleBox>
 
-const PictureInfoItems = ({infoItems}) => infoItems
-										   		? <InfoBox>{infoItems.map((item, i) => <InfoItem>{item.name}</InfoItem>)}</InfoBox>
-										   		: <InfoBox>
-											   		<InfoItem>Styrka</InfoItem>
-											   		<InfoItem>Flexibilitet</InfoItem>
-											   		<InfoItem>Koncentration</InfoItem>
-										   		  </InfoBox>
-
-
-
 
 
 
 const Icons = styled.i`
 	position: absolute;
+	border: 1px solid rgba(0,0,0,0);
 	top: 15px;
 	left: 12px;
-	color: white;
+	color: rgba(255,255,255,1);
  	cursor: pointer;
  	transform: scale(1.3);
  	transition: color 0.2s ease-in-out;
@@ -167,41 +183,10 @@ const Icons = styled.i`
 
 
 
-const InfoItem = styled.div`
-	height: 20px;
-	width: 22px;
-	background-color: rgba(15,15,15, 0.8);
-	transition: width 0.5s;
-	color: white;
-	padding-left: 6px;
-	letter-spacing: 5px;
-	&:hover {
-		max-width: 400px;
-	}
-	overflow: hidden;
-	cursor: pointer;
-	user-select: none;
-	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-	z-index: 2;
-	font-size: 15px;
-`;
 
-const InfoBox = styled.div`
-	position: absolute;
-	height: 80px;
-	width: 50px;
-	top: 0;
-	transform: translate(0, -100px);
-	z-index: 2;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	user-select: none;
-	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
-`
 const Title = styled.h3`
 	position: absolute;
-	top: 14px;
+	top: 15px;
 	left: 45px;
 	color: rgba(255,255,255,1);
 	font-size: 24px;
@@ -211,10 +196,13 @@ const Title = styled.h3`
 	letter-spacing: 1px;
 	font-weight: 200;
 	cursor: pointer;
-	text-shadow: 0 0 10px rgba(0,0,0,0.5);
+	text-shadow: 0 0 10px rgba(0,0,0,0.2);
 `;
 const TitleBox = styled.div`
-	width: inherit;
+	position: absolute;
+	top: 0px;
+	left: 5px;
+	width: 300px;
 	height: 50px;
 	background-color: rgba(0,0,0,0);
 `;
@@ -228,4 +216,16 @@ const CardContainer = styled.div`
 	overflow: hidden;
 	background-color: ${props => props.color ? props.color : '#fffde7'};
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+	&:hover {
+		${CardBox} {
+			transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.3s ease-in-out;
+			background-color: rgba(0,0,0,0.3);
+			color: rgba(255,255,255,0.8);
+			transform: translateX(0px);
+		}
+		${MIcon} {
+			visibility: visible;
+			opacity: 0.7;
+		}
+	}
 `;
