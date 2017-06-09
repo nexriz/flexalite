@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors'
 import path from 'path';
-import mongodb from './mongodb';
+import mongostart from './mongostart';
 
 import socket from './socket.js';
 import allowCrossDomain from './utilz/AllowCrossDomain';
@@ -34,8 +34,8 @@ app.use(express.static(path.resolve(__dirname, '..', 'build')))
 
 
 // Database MongoDB
-const db = mongodb('mongodb://127.0.0.1:27017/fitnesscards');
-
+//const db = mongodb('mongodb://127.0.0.1:27017/fitnesscards');
+const db = mongostart('mongodb://127.0.0.1:27017/fitnesscards')
 // our Routes
 app.use('/api', apiRoutes);
 

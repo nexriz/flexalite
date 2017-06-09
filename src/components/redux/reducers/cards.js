@@ -1518,12 +1518,10 @@ export default (state=init, action) => {
 	switch(action.type) {
 		case 'ADD_CARD':
 			return [...state, ...action.payload]
+		case 'REMOVE_CARD':
+			return state.filter((item, i) => action.payload !== i)
 		default:
 			return state
 	}
 }
 
-export const filteredCards = (state='', action) => {
-	if(action.type === 'FILTER_CARDS') return 'FILTER_CARDS'
-	else return state
-}

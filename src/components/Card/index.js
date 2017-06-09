@@ -32,18 +32,22 @@ const Card = ({props, history}) => {
         		<Event add={[{ type: 'dblclick', func: next}]}><CardPicture picture={picture && picture}/></Event>
         		<CardTitle title={title}/>
         		<Event tap={next}><Middle><MIcon>visibility</MIcon></Middle></Event>
-        		<CardBox>
-        			<li>Styrka</li>
-        			<li>Flexibilitet</li>
-        			<li>Koncentration</li>
-        		</CardBox>
+
         		<IconContainer><Ic><InfoB x="-63" y="7">Statistik</InfoB>assessment</Ic><Ic><InfoB x="-97" y="4">Kommentarer</InfoB>comment</Ic></IconContainer>
     		</Contain>
 		);
 }
 //         		<PictureInfoItems infoItems={infoItems}/>
 
-
+function BoxFunc() {
+	return (
+		<CardBox>
+			<li>Styrka</li>
+			<li>Flexibilitet</li>
+			<li>Koncentration</li>
+		</CardBox>
+	)
+}
 const CardBox = styled.ul`
 	position: absolute;
 	top: 75px;

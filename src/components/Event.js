@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class Event extends React.Component {
 	state = {
-		id: 'eventId-' + Math.random().toString(36).substring(2) + Math.random().toString(36).substring(4),
+		id: this._getRandomId(),
 		clickEvents: ['touchstart', 'click']
 	}
 	componentDidMount() {
@@ -19,7 +19,10 @@ export default class Event extends React.Component {
 		this.element = this._getElement(this.state.id);
 		if(tap) this._removeEvents(this._createEvents(clickEvents, tap))
 		else this._removeEvents(add)
-
+	}
+	_getRandomId() {
+		const randomId = () => Math.random().toString(36).substring(2)
+		return 'eventId-' + randomId() + randomId()
 	}
 	_addEvents = (events) => {
 		for(let event of events) this.element.addEventListener(event.type, event.func, false);
@@ -46,5 +49,6 @@ Event.propTypes = {
 			func: PropTypes.func.isRequired
 		})
 	),
+	direct: PropTypes.boolean,
 	tap: PropTypes.func
 }

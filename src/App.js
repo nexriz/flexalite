@@ -5,13 +5,13 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { RouteTransition } from 'react-router-transition';
 //import './modules/video.css';
 // Pages
-import Home from './modules/Home';
-import Login from './modules/Login';
-import Cards from './modules/Cards';
-import Favorite from './modules/Favorite';
-import Profile from './modules/Profile';
-import Create from './modules/Create';
-import CardFullscreen from './modules/CardFullscreen';
+import Home from './containers/Home';
+import Login from './containers/Login';
+import Cards from './containers/Cards';
+import Favorite from './containers/Favorite';
+import Profile from './containers/Profile';
+import Create from './containers/Create';
+import CardFullscreen from './containers/CardFullscreen';
 
 import NavbarBottom from './components/NavbarBottom';
 import patternsport from './Sports.png';

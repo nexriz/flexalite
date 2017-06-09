@@ -35,7 +35,7 @@ const BackButton = styled.div`
   z-index: 200;
   transition: color 0.3s;
   &:hover {
-    color: white;
+    color: #EA454B;
   } 
   &:focus {
     color: white;
@@ -56,7 +56,7 @@ const Header = styled.h4`
 const Navbar = styled.header`
 	width: 100%;
 	height: 50px;
-	background-color: #111111;
+	background-color: #202324;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 	z-index: 100;
 	position: fixed;
