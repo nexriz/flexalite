@@ -29,7 +29,7 @@ const Card = ({props, history}) => {
   	const { title, picture } = props;	
 		return (
     		<Contain>
-        		<Event add={[{ type: 'dblclick', func: next}]}><CardPicture picture={picture && picture}/></Event>
+				<CardPicture picture={picture && picture}/>
         		<CardTitle title={title}/>
         		<Event tap={next}><Middle><MIcon>visibility</MIcon></Middle></Event>
 

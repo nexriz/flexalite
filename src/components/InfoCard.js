@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-export default ({ icon, title, children}) => {
+export default ({ icon, iColor, title, children}) => {
     return (
-        <InfoCard>
+        <InfoCard iColor={iColor}>
             <div><I>{icon || 'view_quilt'}</I><h5>{title || 'Välkommen'}</h5></div>
             <Content>
                 {children}
@@ -13,13 +13,13 @@ export default ({ icon, title, children}) => {
     )
 }
 const Content = styled.div`
-    margin: 20px 15px 10px;
+    margin: 20px;
 `;
 const InfoCard = styled.div`
     margin: auto;
     max-width: 400px;
     margin-top: 1px;
-    min-height: 350px;
+    min-height: 200px;
     overflow: scroll;
     color: ${props => props.theme.InfoCardTextColor ? props.theme.InfoCardTextColor : 'rgba(255,255,255,0.9)'};
     background-color: ${props => props.theme.InfoCardBackColor ? props.theme.InfoCardBackColor : '#242829'};
@@ -27,7 +27,7 @@ const InfoCard = styled.div`
     div:first-child {
         width: 100%;
         background-color: ${props => props.theme.InfoCardTitleColor ? props.theme.InfoCardTitleColor : '#292D2E'};
-        border-bottom: 1px solid rgba(255,255,255,0.03);
+        border-bottom: 1px solid rgba(255,255,255,0.02);
         h5 {
             margin-top: 0;
             font-size: 18px;
@@ -35,14 +35,14 @@ const InfoCard = styled.div`
         }
         i {
             transform: translate(8px, 8px);
+            color: ${props => props.iColor ? props.iColor : props.theme.InfoCardIconColor ? props.theme.InfoCardIconColor : 'white'};
         }
     }
 `
 
 const I = styled.i.attrs({
-  className: 'material-icons'
+    className: 'material-icons'
 })`
-  position: absolute;
-	color: rgba(255,255,255,1);
+    position: absolute;
  	cursor: pointer;
 `;

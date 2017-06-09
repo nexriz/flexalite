@@ -49,6 +49,6 @@ Event.propTypes = {
 			func: PropTypes.func.isRequired
 		})
 	),
-	direct: PropTypes.boolean,
+	direct: PropTypes.func,
 	tap: PropTypes.func
 }

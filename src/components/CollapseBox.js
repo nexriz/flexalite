@@ -77,4 +77,5 @@ const Content = styled.div`
 	height: 100%;
 	background-color: rgba(255,255,255,0.04);
 	margin-top: 15px;
+	padding: 10px;
 `;

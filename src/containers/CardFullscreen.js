@@ -4,8 +4,7 @@ import { Helmet } from "react-helmet";
 
 import InfoCard from '../components/InfoCard';
 import VideoPlayer from '../components/VideoPlayer';
-import 'video.js/dist/video-js.css';
-import './video.css';
+
 
 
 export default class CardFullscreen extends React.Component {
@@ -38,9 +37,9 @@ export default class CardFullscreen extends React.Component {
   }
 }
 const InfoCards = () => 
-       <InfoContainer style={{height: `${window.innerHeight}px`}}>
+       <InfoContainer style={{height: `${window.innerHeight - 250}px`}}>
           <InfoCard icon="info_outline" title="Kort Information">
-            <ul style={{padding: '25px'}}>
+            <ul>
               <li>Träningskort - 50%</li>
               <li>Navigering - 100%</li>
               <li>Kort skapare - 20%</li>
@@ -49,11 +48,25 @@ const InfoCards = () =>
             </ul>
           </InfoCard>
           <InfoCard icon="live_help" title="Övningar">
-            <ul style={{padding: '25px'}}>
+            <ul>
               <li>Layout uppdaterat</li>
             </ul>
           </InfoCard>
-          <div style={{height: '40px'}}/>
+          <InfoCard icon="live_help" title="Övningar">
+            <ul>
+              <li>Layout uppdaterat</li>
+            </ul>
+          </InfoCard>
+          <InfoCard icon="live_help" title="Övningar">
+            <ul>
+              <li>Layout uppdaterat</li>
+            </ul>
+          </InfoCard>
+          <InfoCard icon="live_help" title="Övningar">
+            <ul>
+              <li>Layout uppdaterat</li>
+            </ul>
+          </InfoCard>
       </InfoContainer>
 
 
@@ -81,6 +94,7 @@ const InfoContainer = styled.div`
   overflow: scroll;
   padding-top: 0px;
   z-index: 200;
+  margin-bottom: 50px;
 `;
 const CardBox = styled.div`
   max-width: 400px;

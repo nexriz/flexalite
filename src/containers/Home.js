@@ -1,69 +1,65 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { Helmet } from "react-helmet";
 import InfoCard from '../components/InfoCard';
 import CollapseBox from '../components/CollapseBox';
 
 export default class Home extends React.Component {
   render() {
+    const theme = {
+      InfoCardIconColor: '#64b5f6'
+    }
     return (
+    <ThemeProvider theme={theme}>
       <Container style={{height: `${window.innerHeight - 50}px`}}>
         <Helmet>
           <title>Flexa Lite - Hem</title>
           <meta name="" content="" />
         </Helmet>
-
-      	<InfoCard icon="insert_chart" title="Välkommen">
-      		<ul style={{padding: '25px'}}>
-      			<li>Träningskort - 50%</li>
-      			<li>Navigering - 100%</li>
-      			<li>Kort skapare - 20%</li>
-      			<li>Annat - ... inc</li>
-      			<li>Total - 30%</li>
-      		</ul>
-      	</InfoCard>
-        <InfoCard icon="present_to_all" title="Uppdateringar">
-          <CollapseBox header="Öppna">
-            <ul style={{padding: '25px'}}>
-              <li>Layout uppdaterat</li>
-              
+          <InfoCard icon="new_releases" title="Välkommen">
+            <ul>
+              <li>Träningskort - 50%</li>
+              <li>Navigering - 100%</li>
+              <li>Kort skapare - 20%</li>
+              <li>Annat - ... inc</li>
+              <li>Total - 30%</li>
             </ul>
-          </CollapseBox>
-          <CollapseBox header="Info">
-            <ul style={{padding: '25px'}}>
+          </InfoCard>
+          <InfoCard iColor="white" icon="settings_remote" title="Uppdateringar">
+            <CollapseBox header="Öppna">
+              <ul>
+                <li>Layout uppdaterat</li>
+              </ul>
+            </CollapseBox>
+            <CollapseBox header="Info">
+              <ul>
+                <li>Layout uppdaterat</li>
+              </ul>
+            </CollapseBox>
+            <CollapseBox header="Nytt">
+              <ul>
+                <li>Layout uppdaterat</li>
+              </ul>
+            </CollapseBox>
+          </InfoCard>
+          <InfoCard iColor="white" icon="settings" title="Inställningar">
+            <ul>
               <li>Layout uppdaterat</li>
-              
             </ul>
-          </CollapseBox>
-          <CollapseBox header="Nytt">
-            <ul style={{padding: '25px'}}>
+          </InfoCard>
+          <InfoCard iColor="#aeea00" icon="schedule" title="Mitt Schema">
+            <ul>
               <li>Layout uppdaterat</li>
-              
             </ul>
-          </CollapseBox>
-        </InfoCard>
-        <InfoCard icon="settings" title="Inställningar">
-          <ul style={{padding: '25px'}}>
-            <li>Layout uppdaterat</li>
-
-          </ul>
-        </InfoCard>
-        <InfoCard icon="video_library" title="Egna plugins">
-
-          <ul style={{padding: '25px'}}>
-            <li>Layout uppdaterat</li>
-
-          </ul>
-        </InfoCard>
-        <InfoCard icon="schedule" title="Mitt Schema">
-
-          <ul style={{padding: '25px'}}>
-            <li>Layout uppdaterat</li>
-
-          </ul>
-        </InfoCard>
+          </InfoCard>
+          <InfoCard iColor="#ffd180" icon="note_add" title="Egna plugins">
+            <ul>
+              <li>Layout uppdaterat</li>
+            </ul>
+          </InfoCard>
         <Space />
       </Container>
+    </ThemeProvider>
     );
   }
 }
