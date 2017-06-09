@@ -5,9 +5,9 @@ import styled, { keyframes } from 'styled-components';
 //import exerc from '../svg/exercise.svg';
 //import legdips from '../svg/legdips.svg';
 //import medal from '../svg/medal.svg';
-import corner from '../../svg/corner-handle.svg';
+//import corner from '../../svg/corner-handle.svg';
 import CardPicture from './CardPicture';
-import { SortableElement, SortableHandle } from 'react-sortable-hoc';
+import { SortableElement } from 'react-sortable-hoc';
 import Event from '../Event';
 
  export default SortableElement(({props, style, history}) => {
@@ -26,7 +26,7 @@ const Card = ({props, history}) => {
 		e.preventDefault();
 		history.push('/kort/23')
 	}
-  	const { title, picture, infoItems} = props;	
+  	const { title, picture } = props;	
 		return (
     		<Contain>
         		<Event add={[{ type: 'dblclick', func: next}]}><CardPicture picture={picture && picture}/></Event>
@@ -39,15 +39,15 @@ const Card = ({props, history}) => {
 }
 //         		<PictureInfoItems infoItems={infoItems}/>
 
-function BoxFunc() {
-	return (
-		<CardBox>
-			<li>Styrka</li>
-			<li>Flexibilitet</li>
-			<li>Koncentration</li>
-		</CardBox>
-	)
-}
+// function BoxFunc() {
+// 	return (
+// 		<CardBox>
+// 			<li>Styrka</li>
+// 			<li>Flexibilitet</li>
+// 			<li>Koncentration</li>
+// 		</CardBox>
+// 	)
+// }
 const CardBox = styled.ul`
 	position: absolute;
 	top: 75px;
@@ -162,14 +162,11 @@ const Contain = styled.div`
 `;
 
 
-const Handle = SortableHandle(() => <HandleIcon  width="30px" height="30px" style={{position: 'absolute'}} src={corner} alt=""/>)
-const HandleIcon = styled.img`
-	transform: translate(289px, -31px) rotate(0deg);
-`;
+//const Handle = SortableHandle(() => <HandleIcon  width="30px" height="30px" style={{position: 'absolute'}} src={corner} alt=""/>)
+// const HandleIcon = styled.img`
+// 	transform: translate(289px, -31px) rotate(0deg);
+// `;
 const CardTitle = (props) => <TitleBox><Icons className="material-icons">view_quilt</Icons><Title>{props.title}</Title></TitleBox>
-
-
-
 
 const Icons = styled.i`
 	position: absolute;
@@ -184,9 +181,6 @@ const Icons = styled.i`
  		color: #EA454B;
  	}
 `;
-
-
-
 
 const Title = styled.h3`
 	position: absolute;

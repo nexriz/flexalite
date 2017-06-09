@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { SortableContainer, arrayMove } from 'react-sortable-hoc';
+import { SortableContainer } from 'react-sortable-hoc';
 import VirtualList from 'react-tiny-virtual-list';
 import { fetchCards, dispatchsortCards } from '../components/redux/actions/cardActions';
 import { Helmet } from "react-helmet";
@@ -16,14 +16,11 @@ const mapStateToProps = (state) => {
 }
 @connect(mapStateToProps, { fetchCards, dispatchsortCards })
 export default class CardComponent extends React.Component {
-	constructor() {
-		super();
-	}
 	componentWillMount() {
   		this.props.fetchCards({})
   	}
 	onSortEnd = ({oldIndex, newIndex}) => {
-	  	const newCards = arrayMove(this.props.cards, oldIndex, newIndex);
+	  	//const newCards = arrayMove(this.props.cards, oldIndex, newIndex);
 	  	this.setState({close: null})
   	}
 	render() {
