@@ -35,9 +35,12 @@ const BackButton = styled.div`
   z-index: 200;
   transition: color 0.3s;
   &:hover {
-    color: #EA454B;
+    color: white;
   } 
   &:focus {
+    color: white;
+  }
+  &:active {
     color: white;
   }
 `;
@@ -56,7 +59,7 @@ const Header = styled.h4`
 const Navbar = styled.header`
 	width: 100%;
 	height: 50px;
-	background-color: #202324;
+	background-color: ${props => props.theme.NavTopColor ? props.theme.NavTopColor : '#202324'};;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 	z-index: 100;
 	position: fixed;

@@ -39,7 +39,7 @@ export default class CardFullscreen extends React.Component {
 }
 const InfoCards = () => 
        <InfoContainer style={{height: `${window.innerHeight}px`}}>
-          <InfoCard title="Kort Information">
+          <InfoCard icon="info_outline" title="Kort Information">
             <ul style={{padding: '25px'}}>
               <li>Träningskort - 50%</li>
               <li>Navigering - 100%</li>
@@ -48,7 +48,7 @@ const InfoCards = () =>
               <li>Total - 30%</li>
             </ul>
           </InfoCard>
-          <InfoCard>
+          <InfoCard icon="live_help" title="Övningar">
             <ul style={{padding: '25px'}}>
               <li>Layout uppdaterat</li>
             </ul>

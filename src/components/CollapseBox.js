@@ -10,10 +10,10 @@ export default class CollItem extends React.Component {
 	c
 	componentDidMount() {
 		this.header = document.getElementById(this.state.id);
-		this.header.addEventListener('touchstart', this.mouseEventClick, false);
+		this.header.addEventListener('touchstop', this.mouseEventClick, false);
 	}
 	componentWillUnmount() {
-		this.header.removeEventListener('touchstart', this.mouseEventClick, false);
+		this.header.removeEventListener('touchstop', this.mouseEventClick, false);
 		this.header = false;
 		this.setState({display: false})
 	}
@@ -27,7 +27,7 @@ export default class CollItem extends React.Component {
 	}
 	render() {
 		const { display, id } = this.state;
-		const { header, icon, first } = this.props;
+		const { header } = this.props;
 		return (
 			<Motion 
 				defaultStyle={{margin: 30, bottom: 0}} 
@@ -40,9 +40,7 @@ export default class CollItem extends React.Component {
 						margin: `${styles.bottom}px ${styles.margin}px ${styles.bottom}px ${styles.margin}px`,
 						borderBottom: '1px solid rgba(0,0,0,0)'
 						}} >
-						   	<Header id={id} ref="test" onClick={this.mouseEventClick}><Icon 
-						   				style={{float: `${first ? '' : 'left'}`}}
-						   				src={icon ? icon : 'icon'}/>
+						   	<Header id={id} ref="test" onClick={this.mouseEventClick}>
 						   				<Title>{header}</Title>
 						   	</Header>
 							{display && <Content>{this.props.children}</Content>}
@@ -53,25 +51,19 @@ export default class CollItem extends React.Component {
 	}
 }
 
-const Icon = styled.img`
-	width: 23px;
-	height: 23px;
-	margin: 0 17px 0 17px;
-	display: inline;
-`;
-
-const Title = styled.h4`
-	display: inline;
+const Title = styled.h5`
+	text-align: center;
+	font-size: 18px;
 	letter-spacing: 1px;
 	font-weight: 500!important;
 	user-select: none;
+	margin: 0;
 `;
 						// backgroundColor: '#546e7a'
-
 const Collapseble = styled.li`
-	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	user-select: none;
-	background-color: #546e7a;
+	background-color: ${props => props.theme.CollapseBackColor ? props.theme.CollapseBackColor : '#343434' };
 	border: 1px solid rgba(0,0,0,0);
 	border-radius: 2px;
 	cursor: pointer;
@@ -81,7 +73,8 @@ const Header = styled.a`
 	width: 100px;
 `;
 const Content = styled.div`
+	border-top: 1px solid rgba(255,255,255,1)
 	height: 100%;
-	background-color: rgba(255,255,255,1);
+	background-color: rgba(255,255,255,0.04);
 	margin-top: 15px;
 `;

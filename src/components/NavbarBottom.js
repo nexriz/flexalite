@@ -57,7 +57,7 @@ const NavBar = styled.nav`
 	position: fixed;
 	width: 100%;
 	height: 50px;
-	background-color: #202324;
+	background-color: ${props => props.theme.NavBottomColor ? props.theme.NavBottomColor : '#202324'};
 	display: flex;
 	justify-content: center;
 	bottom: 0px;
@@ -69,7 +69,7 @@ const NavBar = styled.nav`
 const Navitem = styled(NavLink)`
 	width: 60px;
 	height: 50px;
-	background-color: #202324;
+	background-color: ${props => props.theme.NavBottomColor ? props.theme.NavBottomColor : '#202324'};;
 	transition: color 0.3s ease-in-out;
 	&:hover {
 		color: #EA454B;

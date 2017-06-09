@@ -184,17 +184,17 @@ const Icons = styled.i`
 
 const Title = styled.h3`
 	position: absolute;
-	top: 15px;
+	top: 16px;
 	left: 45px;
 	color: rgba(255,255,255,1);
-	font-size: 24px;
+	font-size: 22px;
 	padding: 0;
 	margin: 0;
 	font-family: 'Audiowide', cursive;
 	letter-spacing: 1px;
 	font-weight: 200;
 	cursor: pointer;
-	text-shadow: 0 0 10px rgba(0,0,0,0.2);
+	text-shadow: 0 0 10px rgba(0,0,0,0.01);
 `;
 const TitleBox = styled.div`
 	position: absolute;

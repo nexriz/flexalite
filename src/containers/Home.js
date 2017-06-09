@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from "react-helmet";
 import InfoCard from '../components/InfoCard';
+import CollapseBox from '../components/CollapseBox';
 
 export default class Home extends React.Component {
   render() {
@@ -22,10 +23,24 @@ export default class Home extends React.Component {
       		</ul>
       	</InfoCard>
         <InfoCard icon="present_to_all" title="Uppdateringar">
-          <ul style={{padding: '25px'}}>
-            <li>Layout uppdaterat</li>
-
-          </ul>
+          <CollapseBox header="Öppna">
+            <ul style={{padding: '25px'}}>
+              <li>Layout uppdaterat</li>
+              
+            </ul>
+          </CollapseBox>
+          <CollapseBox header="Info">
+            <ul style={{padding: '25px'}}>
+              <li>Layout uppdaterat</li>
+              
+            </ul>
+          </CollapseBox>
+          <CollapseBox header="Nytt">
+            <ul style={{padding: '25px'}}>
+              <li>Layout uppdaterat</li>
+              
+            </ul>
+          </CollapseBox>
         </InfoCard>
         <InfoCard icon="settings" title="Inställningar">
           <ul style={{padding: '25px'}}>
