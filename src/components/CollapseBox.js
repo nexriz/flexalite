@@ -41,6 +41,7 @@ export default class CollItem extends React.Component {
 						borderBottom: '1px solid rgba(0,0,0,0)'
 						}} >
 						   	<Header id={id} ref="test" onClick={this.mouseEventClick}>
+										
 						   				<Title>{header}</Title>
 						   	</Header>
 							{display && <Content>{this.props.children}</Content>}
@@ -50,10 +51,10 @@ export default class CollItem extends React.Component {
 			);
 	}
 }
-
+// <i className="material-icons">present_to_all</i>
 const Title = styled.h5`
 	text-align: center;
-	font-size: 18px;
+	font-size: 16px;
 	letter-spacing: 1px;
 	font-weight: 500!important;
 	user-select: none;
@@ -71,6 +72,11 @@ const Collapseble = styled.li`
 `;
 const Header = styled.a`
 	width: 100px;
+	i {
+		position: absolute;
+		transform: translate(10px, -3px);
+		color: #ff9e80;
+	}
 `;
 const Content = styled.div`
 	border-top: 1px solid rgba(255,255,255,1)

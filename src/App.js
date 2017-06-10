@@ -48,7 +48,7 @@ export default class App extends React.Component {
 				return (
 					<ThemeProvider theme={theme}>
 						<Page id="page">
-							<Navigation location={location} history={history}/>
+							<Navigation location={location} history={history} />
 								<Transition location={location}>
 									<Switch key={location.key} location={location}>
 										<Route exact path="/" component={Home}/>		
@@ -60,7 +60,7 @@ export default class App extends React.Component {
 										<Route path="/login" component={Login} />
 									</Switch>
 								</Transition>
-							<NavbarBottom isAuth={isAuth && isAuth}/>
+							<NavbarBottom isAuth={isAuth && isAuth} />
 						</Page>
 					</ThemeProvider>
 				);
