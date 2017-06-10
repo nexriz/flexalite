@@ -38,7 +38,7 @@ export default class CardFullscreen extends React.Component {
 }
 const InfoCards = () => 
        <InfoContainer style={{height: `${window.innerHeight - 250}px`}}>
-          <InfoCard icon="info_outline" title="Kort Information">
+          <InfoCard iColor="#64b5f6" icon="info_outline" title="Kort Information">
             <ul>
               <li>Träningskort - 50%</li>
               <li>Navigering - 100%</li>
@@ -47,22 +47,22 @@ const InfoCards = () =>
               <li>Total - 30%</li>
             </ul>
           </InfoCard>
-          <InfoCard icon="live_help" title="Övningar">
+          <InfoCard iColor="#7cb342" icon="live_help" title="Övningar">
             <ul>
               <li>Layout uppdaterat</li>
             </ul>
           </InfoCard>
-          <InfoCard icon="live_help" title="Övningar">
+          <InfoCard iColor="#7cb342" icon="live_help" title="Övningar">
             <ul>
               <li>Layout uppdaterat</li>
             </ul>
           </InfoCard>
-          <InfoCard icon="live_help" title="Övningar">
+          <InfoCard iColor="#7cb342" icon="live_help" title="Övningar">
             <ul>
               <li>Layout uppdaterat</li>
             </ul>
           </InfoCard>
-          <InfoCard icon="live_help" title="Övningar">
+          <InfoCard iColor="#7cb342" icon="live_help" title="Övningar">
             <ul>
               <li>Layout uppdaterat</li>
             </ul>
