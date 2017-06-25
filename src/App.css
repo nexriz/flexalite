@@ -2,6 +2,7 @@
 	@font-face {
 		font-family: 'Audiowide', cursive;
 	}
+
 	* {
 		font-family: 'Audiowide', cursive;
 		-webkit-font-smoothing: antialiased;

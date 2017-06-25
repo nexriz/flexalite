@@ -12,7 +12,7 @@ export default class CardFullscreen extends React.Component {
     const videoJsOptions = {
       autoplay: false,
       controls: true,
-      inactivityTimeout: 200,
+      inactivityTimeout: 2000,
       preload: 'metadata',
       sources: [{
         src: this.props.videosrc || 'https://media.w3.org/2010/05/sintel/trailer.mp4',
@@ -36,6 +36,7 @@ export default class CardFullscreen extends React.Component {
     );
   }
 }
+
 const InfoCards = () => 
        <InfoContainer style={{height: `${window.innerHeight - 250}px`}}>
           <InfoCard iColor="#64b5f6" icon="info_outline" title="Kort Information">
@@ -94,7 +95,7 @@ const InfoContainer = styled.div`
   overflow: scroll;
   padding-top: 0px;
   z-index: 200;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 `;
 const CardBox = styled.div`
   max-width: 400px;

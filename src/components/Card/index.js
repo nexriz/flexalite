@@ -176,6 +176,7 @@ const Icons = styled.i`
  	cursor: pointer;
  	transform: scale(1.3);
  	transition: color 0.2s ease-in-out;
+	text-shadow: 0 1px rgba(0,0,0,0.5);
  	&:hover {
  		color: #EA454B;
  	}
@@ -193,7 +194,7 @@ const Title = styled.h3`
 	letter-spacing: 1px;
 	font-weight: 200;
 	cursor: pointer;
-	text-shadow: 0 0 10px rgba(0,0,0,0.01);
+	text-shadow: 0 1px rgba(0,0,0,0.5);
 `;
 const TitleBox = styled.div`
 	position: absolute;
@@ -209,7 +210,7 @@ const CardContainer = styled.div`
 	margin: auto;
 	max-width: 400px;
 	min-height: 200px;
-	border-radius: 5px;
+	border-radius: 10px;
 	margin-top: 10px;
 	overflow: hidden;
 	background-color: ${props => props.color ? props.color : '#fffde7'};

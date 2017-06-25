@@ -18,10 +18,10 @@ const Content = styled.div`
 const InfoCard = styled.div`
     margin: auto;
     max-width: 400px;
-    margin-bottom: 1px;
-    margin-top: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     min-height: 200px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: scroll;
     color: ${props => props.theme.InfoCardTextColor 
         ? props.theme.InfoCardTextColor 
@@ -30,8 +30,10 @@ const InfoCard = styled.div`
         ? props.theme.InfoCardBackColor 
         : '#242829'};
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.04);
+
     div:first-child {
         width: 100%;
+        margin-top: 1px;
         background-color: ${props => props.theme.InfoCardTitleColor 
             ? props.theme.InfoCardTitleColor 
             : '#242829'};

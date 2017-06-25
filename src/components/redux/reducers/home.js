@@ -1,6 +1,6 @@
 let init = [
   {
-    title: "Välkommen",
+    title: "NYHETER",
     icon: "new_releases",
     iColor: "",
     content: [
@@ -27,7 +27,7 @@ let init = [
     ]
   },
   {
-    title: "Uppdateringar",
+    title: "UPPDATERINGAR",
     icon: "settings_remote",
     iColor: "white",
     content: [
@@ -52,7 +52,7 @@ let init = [
     ]
   },
   {
-    title: "Mitt Schema",
+    title: "MITT SCHEMA",
     icon: "schedule",
     iColor: "#aeea00",
     content: [
@@ -71,7 +71,7 @@ let init = [
     ]
   },
   {
-    title: "Inställningar",
+    title: "INSTÄLLNINGAR",
     icon: "settings",
     iColor: "white",
     content: [
@@ -82,13 +82,13 @@ let init = [
     ]
   },
   {
-    title: "Egna plugins",
+    title: "MINA TILLÄGG",
     icon: "note_add",
     iColor: "#ffd180",
     content: [
         {
           type: 'list',
-          text: 'Tanken är att det ska finnas extra till lägg för sidan, egna statistik mätare och annat.'
+          text: 'Tanken är att det ska finnas extra tillägg för sidan, egna statistik mätare och annat.'
         }
     ]
   },
