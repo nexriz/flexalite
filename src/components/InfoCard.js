@@ -18,15 +18,21 @@ const Content = styled.div`
 const InfoCard = styled.div`
     margin: auto;
     max-width: 400px;
-    margin-top: 1px;
+    margin-bottom: 1px;
     min-height: 200px;
     overflow: scroll;
-    color: ${props => props.theme.InfoCardTextColor ? props.theme.InfoCardTextColor : 'rgba(255,255,255,0.9)'};
-    background-color: ${props => props.theme.InfoCardBackColor ? props.theme.InfoCardBackColor : '#242829'};
+    color: ${props => props.theme.InfoCardTextColor 
+        ? props.theme.InfoCardTextColor 
+        : 'rgba(255,255,255,0.9)'};
+    background-color: ${props => props.theme.InfoCardBackColor 
+        ? props.theme.InfoCardBackColor 
+        : '#242829'};
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.04), 0 1px 5px 0 rgba(0,0,0,0.04), 0 3px 1px -2px rgba(0,0,0,0.04);
     div:first-child {
         width: 100%;
-        background-color: ${props => props.theme.InfoCardTitleColor ? props.theme.InfoCardTitleColor : '#292D2E'};
+        background-color: ${props => props.theme.InfoCardTitleColor 
+            ? props.theme.InfoCardTitleColor 
+            : '#242829'};
         border-bottom: 1px solid rgba(255,255,255,0.02);
         h5 {
             margin-top: 0;
@@ -39,7 +45,7 @@ const InfoCard = styled.div`
         }
     }
 `
-
+//#292D2E
 const I = styled.i.attrs({
     className: 'material-icons'
 })`

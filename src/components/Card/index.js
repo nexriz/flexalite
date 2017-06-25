@@ -32,7 +32,6 @@ const Card = ({props, history}) => {
 				<CardPicture picture={picture && picture}/>
         		<CardTitle title={title}/>
         		<Event tap={next}><Middle><MIcon>visibility</MIcon></Middle></Event>
-
         		<IconContainer><Ic><InfoB x="-63" y="7">Statistik</InfoB>assessment</Ic><Ic><InfoB x="-97" y="4">Kommentarer</InfoB>comment</Ic></IconContainer>
     		</Contain>
 		);
@@ -166,7 +165,7 @@ const Contain = styled.div`
 // const HandleIcon = styled.img`
 // 	transform: translate(289px, -31px) rotate(0deg);
 // `;
-const CardTitle = (props) => <TitleBox><Icons className="material-icons">view_quilt</Icons><Title>{props.title}</Title></TitleBox>
+const CardTitle = (props) => <TitleBox><Icons className="material-icons">class</Icons><Title>{props.title}</Title></TitleBox>
 
 const Icons = styled.i`
 	position: absolute;

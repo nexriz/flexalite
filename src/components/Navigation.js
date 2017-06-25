@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default ({header, location, history}) => {
+
+export default (props) => {
+    const { location, history } = props;
     return (
         <Navbar>
           <Contain>

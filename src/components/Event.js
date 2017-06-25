@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class Event extends React.Component {
 	state = {
 		id: this._getRandomId(),
-		clickEvents: ['touchstart', 'click']
+		clickEvents: ['touchstop', 'click']
 	}
 	componentDidMount() {
 		const { add, tap } = this.props;

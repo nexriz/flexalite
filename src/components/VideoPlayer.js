@@ -7,7 +7,7 @@ import './video.css';
 class VideoPlayer extends React.Component {
   componentDidMount() {
     this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
-      console.log('onPlayerReady', this)
+      
     });
   }
   componentWillUnmount() {

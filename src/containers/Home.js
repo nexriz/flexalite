@@ -1,14 +1,25 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { Helmet } from "react-helmet";
+import { connect } from 'react-redux';
+
 import InfoCard from '../components/InfoCard';
 import CollapseBox from '../components/CollapseBox';
 
+
+
+const mapStateToProps = (state) => ({
+  InfoData: state.home
+})
+
+@connect(mapStateToProps, {})
 export default class Home extends React.Component {
   render() {
     const theme = {
       InfoCardIconColor: '#64b5f6'
     }
+    const { InfoData} = this.props;
+
     return (
     <ThemeProvider theme={theme}>
       <Container style={{height: `${window.innerHeight - 50}px`}}>
@@ -17,7 +28,8 @@ export default class Home extends React.Component {
           <meta name="" content="" />
         </Helmet>
 
-          <InfoCards data={InfoData}/>
+        <InfoCards data={InfoData}/>
+
         <Space />
       </Container>
     </ThemeProvider>
@@ -25,98 +37,7 @@ export default class Home extends React.Component {
   }
 }
 
-const InfoData = [
-  {
-    title: "Välkommen",
-    icon: "new_releases",
-    iColor: "",
-    content: [
-        {
-          type: 'list',
-          text: 'Träningskort - 50%'
-        },
-        {
-          type: 'list',
-          text: 'Kort skapare - 20%'
-        },
-        {
-          type: 'list',
-          text: 'Annat - ... inc'
-        },
-        {
-          type: 'list',
-          text: 'Navigering - 100%'
-        },
-        {
-          type: 'list',
-          text: 'Total - 30%'
-        }
-    ]
-  },
-  {
-    title: "Uppdateringar",
-    icon: "settings_remote",
-    iColor: "#ffeb3b",
-    content: [
-        {
-          type: 'collapse',
-          header: 'Öppna',
-          text: 'Typ av kollaps knappar'
-        },
-        {
-          type: 'collapse',
-          header: 'Info',
-          text: 'Göm vad du vill här'
-        },
-        {
-          type: 'collapse',
-          header: 'Nytt',
-          text: 'Senaste nytt utan att spoila'
-        }
-    ]
-  },
-  {
-    title: "Mitt Schema",
-    icon: "schedule",
-    iColor: "#aeea00",
-    content: [
-        {
-          type: 'list',
-          text: 'Här kan du ha ditt schema.'
-        },
-        {
-          type: 'space'
-        },
-        {
-          type: 'collapse',
-          header: 'Första Upplägg',
-          text: 'Göm vad du vill här'
-        }
-    ]
-  },
-  {
-    title: "Inställningar",
-    icon: "settings",
-    iColor: "white",
-    content: [
-        {
-          type: 'list',
-          text: 'Ska finnas inställningar för utseende och annat.'
-        }
-    ]
-  },
-  {
-    title: "Egna plugins",
-    icon: "note_add",
-    iColor: "#ffd180",
-    content: [
-        {
-          type: 'list',
-          text: 'Tanken är att det ska finnas extra till lägg för sidan, egna statistik mätare och annat.'
-        }
-    ]
-  },
-]
+
 
 const InfoCards = ({data}) => {
   return (
@@ -128,9 +49,9 @@ const InfoCards = ({data}) => {
             icon={item.icon} 
             iColor={item.iColor}
             key={i}>
-            <ul>
-              {item.content.map((content, index) => type_checker(content, index))}
-            </ul>
+              <ul>
+                {item.content.map((content, index) => type_checker(content, index))}
+              </ul>
             <Input />
           </InfoCard>)
       }
@@ -159,7 +80,7 @@ const Space = styled.div`
   height: 0px;
 `
 const Container = styled.div`
-  padding-top: 51px;
+  padding-top: 50px;
 	position: fixed;
 	left: 0;
 	right: 0;

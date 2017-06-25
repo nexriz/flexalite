@@ -54,7 +54,7 @@ export default class CollItem extends React.Component {
 // <i className="material-icons">present_to_all</i>
 const Title = styled.h5`
 	text-align: center;
-	font-size: 16px;
+	font-size: 14px;
 	letter-spacing: 1px;
 	font-weight: 500!important;
 	user-select: none;

@@ -19,10 +19,11 @@ import NavbarBottom from './components/NavbarBottom';
 import Navigation from './components/Navigation';
 
 import { fetchCards, dispatchsortCards } from './components/redux/actions/cardActions';
+import { toggleModal } from './components/redux/actions/modalActions';
 import Authenticate from './utilz/Authenticate';
-
 // Assets
 import './App.css';
+
 
 const mapStateToProps = (state) => {
 	return {
@@ -30,12 +31,13 @@ const mapStateToProps = (state) => {
 		isAuth: state.user.isAuth
 	}
 }
-@connect(mapStateToProps, { fetchCards, dispatchsortCards })
+@connect(mapStateToProps, { fetchCards, dispatchsortCards, toggleModal })
 export default class App extends React.Component {
   render() {
+
   	const { isAuth } = this.props;
 	const theme = {
-		CollapseBackColor: '#292D2E',
+		CollapseBackColor: '',
 		NavTopColor: '',
 		NavBottomColor: '',
 		InfoCardBackColor: '',
@@ -48,7 +50,7 @@ export default class App extends React.Component {
 				return (
 					<ThemeProvider theme={theme}>
 						<Page id="page">
-							<Navigation location={location} history={history} />
+							<Navigation location={location} history={history} modal={this.props.toggleModal}/>
 								<Transition location={location}>
 									<Switch key={location.key} location={location}>
 										<Route exact path="/" component={Home}/>		

@@ -1,21 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { connect } from 'react-redux';
 import { SortableContainer } from 'react-sortable-hoc';
 import VirtualList from 'react-tiny-virtual-list';
-import { fetchCards, dispatchsortCards } from '../components/redux/actions/cardActions';
 import { Helmet } from "react-helmet";
 
+import { fetchCards, dispatchsortCards } from '../components/redux/actions/cardActions';
+
 import Card from '../components/Card';
+
 
 const mapStateToProps = (state) => {
 	return {
 		cards: state.cards,
-		isAuth: state.user.isAuth
+		isAuth: state.user.isAuth,
+		modal: state.modal
 	}
 }
 @connect(mapStateToProps, { fetchCards, dispatchsortCards })
-export default class CardComponent extends React.Component {
+export default class Cards extends React.Component {
 	componentWillMount() {
   		this.props.fetchCards({})
   	}
@@ -48,7 +52,7 @@ const CardsContainer = styled.div`
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 `;
 const Container = styled.div`
-	margin-top: 52px;
+	margin-top: 50px;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 `;
 
@@ -66,7 +70,7 @@ const InfiniteScroll = ({ cards, closeColl, onSortEnd, history }) => {
 const CardList = SortableContainer(({cards, history}) => {
 	return <StyledVirtualList
 			    width='auto'
-			    height={window.innerHeight - 104}
+			    height={window.innerHeight - 100}
 			    itemCount={cards.length}
 			    itemSize={210}
 			    scrollDirection='vertical'
