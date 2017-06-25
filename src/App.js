@@ -37,7 +37,6 @@ export default class App extends React.Component {
 
   	const { isAuth } = this.props;
 	const theme = {
-		CollapseBackColor: '',
 		NavTopColor: '',
 		NavBottomColor: '',
 		InfoCardBackColor: '',

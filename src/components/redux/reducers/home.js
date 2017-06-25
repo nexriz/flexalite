@@ -33,17 +33,20 @@ let init = [
     content: [
         {
           type: 'collapse',
-          header: 'Öppna',
+          bcolor: 'primary',
+          header: 'INFO',
           text: 'Typ av kollaps knappar'
         },
         {
           type: 'collapse',
-          header: 'Info',
+          bcolor: 'danger',
+          header: 'VARNING',
           text: 'Göm vad du vill här'
         },
         {
           type: 'collapse',
-          header: 'Nytt',
+          bcolor: 'news',
+          header: 'NYHET',
           text: 'Senaste nytt utan att spoila'
         }
     ]
@@ -62,7 +65,7 @@ let init = [
         },
         {
           type: 'collapse',
-          header: 'Första Upplägg',
+          header: 'FÖRSTA UPPLÄGGET',
           text: 'Göm vad du vill här'
         }
     ]

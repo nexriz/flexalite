@@ -36,12 +36,13 @@ export default class Cards extends React.Component {
 		        </Helmet>
 				<CardsContainer>
 					<InfiniteScroll key={'awdawd'} history={this.props.history} cards={this.props.cards} closeColl={this.closeColl} onSortEnd={this.onSortEnd}/>
+					<Space />
 				</CardsContainer>
 			</Container>
 		)
 	}
 }
-
+const Space = styled.div``;
 const StyledVirtualList = styled(VirtualList)`
 	-ms-overflow-style: -ms-autohiding-scrollbar;	
 `;

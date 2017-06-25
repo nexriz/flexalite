@@ -56,7 +56,7 @@ const CardBox = styled.ul`
 	transform: translateX(-100px);
 	background-color: rgba(0,0,0,0);
 	padding: 10px;
-	border-radius: 2px;
+	border-radius: 0px;
 	color: rgba(255,255,255,0);
 	font-size: 10px;
 	li {
@@ -153,7 +153,7 @@ const MIcon = Ic.extend`
 const Contain = styled.div`
 	max-width: 400px;
 	height: 200px;
-	border-radius: 2px;
+	border-radius: 0px;
 	overflow: hidden;
 	}
 	${props => props.shadow 
@@ -197,7 +197,7 @@ const Title = styled.h3`
 `;
 const TitleBox = styled.div`
 	position: absolute;
-	top: 0px;
+	top: 10px;
 	left: 5px;
 	width: 300px;
 	height: 50px;
@@ -209,7 +209,8 @@ const CardContainer = styled.div`
 	margin: auto;
 	max-width: 400px;
 	min-height: 200px;
-	border-radius: 2px;
+	border-radius: 5px;
+	margin-top: 10px;
 	overflow: hidden;
 	background-color: ${props => props.color ? props.color : '#fffde7'};
 	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);

@@ -62,9 +62,9 @@ const InfoCards = ({data}) => {
 function type_checker(data, key) {
     switch(data.type) {
       case "collapse":
-        return <CollapseBox header={data.header} key={key}>{data.text}</CollapseBox>
+        return <CollapseBox header={data.header} bcolor={data.bcolor} key={key}>{data.text}</CollapseBox>
       case "list":
-        return <li key={key}>{data.text}</li>
+        return <li style={{fontSize: '12px'}} key={key}>{data.text}</li>
       case "space": return <br key={key}/>
       default:
         return <div key={key}/>
@@ -80,7 +80,7 @@ const Space = styled.div`
   height: 0px;
 `
 const Container = styled.div`
-  padding-top: 50px;
+  padding: 50px 0px 0px;
 	position: fixed;
 	left: 0;
 	right: 0;

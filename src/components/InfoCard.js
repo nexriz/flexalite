@@ -19,7 +19,9 @@ const InfoCard = styled.div`
     margin: auto;
     max-width: 400px;
     margin-bottom: 1px;
+    margin-top: 1px;
     min-height: 200px;
+    border-radius: 10px;
     overflow: scroll;
     color: ${props => props.theme.InfoCardTextColor 
         ? props.theme.InfoCardTextColor 
@@ -33,7 +35,7 @@ const InfoCard = styled.div`
         background-color: ${props => props.theme.InfoCardTitleColor 
             ? props.theme.InfoCardTitleColor 
             : '#242829'};
-        border-bottom: 1px solid rgba(255,255,255,0.02);
+        border-bottom: 2px solid rgba(0,0,0,0);
         h5 {
             margin-top: 0;
             font-size: 18px;

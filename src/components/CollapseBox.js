@@ -27,7 +27,7 @@ export default class CollItem extends React.Component {
 	}
 	render() {
 		const { display, id } = this.state;
-		const { header } = this.props;
+		const { header, bcolor } = this.props;
 		return (
 			<Motion 
 				defaultStyle={{margin: 30, bottom: 0}} 
@@ -35,7 +35,7 @@ export default class CollItem extends React.Component {
 					margin: spring(display ? 0 : 20, {damping: 10, stiffness: 600, precision: 1}), 
 					bottom: spring(display ? 10 : 4, {damping: 23})}}>
 				{styles =>
-					<Collapseble style={{
+					<Collapseble bcolor={bcolor} style={{
 						padding: '8px 0px',
 						margin: `${styles.bottom}px ${styles.margin}px ${styles.bottom}px ${styles.margin}px`,
 						borderBottom: '1px solid rgba(0,0,0,0)'
@@ -61,14 +61,27 @@ const Title = styled.h5`
 	margin: 0;
 `;
 						// backgroundColor: '#546e7a'
+
+function color_checker(props) {
+	switch(props.bcolor) {
+		case 'primary':
+			return '#0d47a1'
+		case 'danger':
+			return '#b71c1c'
+		case 'news':
+			return '#dd2c00'
+		default:
+			return '#343434'
+	}
+}						
 const Collapseble = styled.li`
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	user-select: none;
-	background-color: ${props => props.theme.CollapseBackColor ? props.theme.CollapseBackColor : '#343434' };
+	background-color: ${props => color_checker(props)};
 	border: 1px solid rgba(0,0,0,0);
-	border-radius: 2px;
+	border-radius: 5px;
 	cursor: pointer;
-	box-shadow: 0 2px 0px 0 rgba(0,0,0,0.1), 0 2px 0px 0 rgba(0,0,0,0.1);
+	box-shadow: 0 3px 0px 0 rgba(0,0,0,0.3), 0 3px 0px 0 rgba(0,0,0,0.1);
 `;
 const Header = styled.a`
 	width: 100px;
