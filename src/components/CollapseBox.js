@@ -54,9 +54,9 @@ export default class CollItem extends React.Component {
 // <i className="material-icons">present_to_all</i>
 const Title = styled.h5`
 	text-align: center;
-	font-size: 14px;
+	font-size: 16px;
 	letter-spacing: 1px;
-	font-weight: 500!important;
+	font-weight: 700;
 	user-select: none;
 	margin: 0;
 `;
@@ -69,9 +69,9 @@ function color_checker(props) {
 		case 'danger':
 			return '#b71c1c'
 		case 'news':
-			return '#dd2c00'
+			return '#b8dd57'
 		default:
-			return '#343434'
+			return props.bcolor || '#343434'
 	}
 }						
 const Collapseble = styled.li`

@@ -1,12 +1,15 @@
 let init = [
   {
-    title: "NYHETER",
+    title: "Nyheter",
     icon: "new_releases",
     iColor: "",
     content: [
         {
           type: 'list',
-          text: 'Träningskort - 50%'
+          text: 'Vad som har ändrats på sidan till exempel, vad som är nytt inom träningen etc.. bla bla..'
+        },
+        {
+          type: 'space'
         },
         {
           type: 'list',
@@ -27,7 +30,7 @@ let init = [
     ]
   },
   {
-    title: "UPPDATERINGAR",
+    title: "Uppdateringar",
     icon: "settings_remote",
     iColor: "white",
     content: [
@@ -52,7 +55,7 @@ let init = [
     ]
   },
   {
-    title: "MITT SCHEMA",
+    title: "Mitt Schema",
     icon: "schedule",
     iColor: "#aeea00",
     content: [
@@ -65,13 +68,14 @@ let init = [
         },
         {
           type: 'collapse',
+          bcolor: '#9c27b0',
           header: 'FÖRSTA UPPLÄGGET',
           text: 'Göm vad du vill här'
         }
     ]
   },
   {
-    title: "INSTÄLLNINGAR",
+    title: "Inställningar",
     icon: "settings",
     iColor: "white",
     content: [
@@ -82,7 +86,7 @@ let init = [
     ]
   },
   {
-    title: "MINA TILLÄGG",
+    title: "Mina Tillägg",
     icon: "note_add",
     iColor: "#ffd180",
     content: [

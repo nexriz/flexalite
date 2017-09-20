@@ -52,7 +52,7 @@ const InfoCards = ({data}) => {
               <ul>
                 {item.content.map((content, index) => type_checker(content, index))}
               </ul>
-            <Input />
+            
           </InfoCard>)
       }
     </div>
@@ -64,18 +64,13 @@ function type_checker(data, key) {
       case "collapse":
         return <CollapseBox header={data.header} bcolor={data.bcolor} key={key}>{data.text}</CollapseBox>
       case "list":
-        return <li style={{fontSize: '12px'}} key={key}>{data.text}</li>
+        return <li key={key}>{data.text}</li>
       case "space": return <br key={key}/>
       default:
         return <div key={key}/>
     }
 }
 
-const Input = styled.input`
-  opacity: 1!important;
-  position: relative!important;
-  left: 0!important;
-`;
 const Space = styled.div`
   height: 0px;
 `

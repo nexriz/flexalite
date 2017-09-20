@@ -14,6 +14,7 @@ export default ({ icon, iColor, title, children}) => {
 }
 const Content = styled.div`
     margin: 20px;
+    font-size: 16px;
 `;
 const InfoCard = styled.div`
     margin: auto;
@@ -21,7 +22,7 @@ const InfoCard = styled.div`
     margin-top: 10px;
     margin-bottom: 10px;
     min-height: 200px;
-    border-radius: 15px;
+    border-radius: 5px;
     overflow: scroll;
     color: ${props => props.theme.InfoCardTextColor 
         ? props.theme.InfoCardTextColor 
@@ -40,11 +41,12 @@ const InfoCard = styled.div`
         border-bottom: 2px solid rgba(0,0,0,0);
         h5 {
             margin-top: 0;
-            font-size: 18px;
+            font-size: 20px;
             padding: 11px 0px 0px 40px;
+            font-weight: 700;
         }
         i {
-            transform: translate(8px, 8px);
+            transform: translate(8px, 10px);
             color: ${props => props.iColor ? props.iColor : props.theme.InfoCardIconColor ? props.theme.InfoCardIconColor : 'white'};
         }
     }

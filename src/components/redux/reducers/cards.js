@@ -2,7 +2,7 @@
 let init = [
 	{
 		title: 'Övre Bröst',
-		picture: 'http://cdn-mf0.heartyhosting.com/sites/mensfitness.com/files/_main_chest_2.jpg',
+		picture: 'https://www.mathiaszachau.com/wp-content/uploads/2016/07/bygg-underarmar-och-greppstyrka-e1468830512143.jpg',
 		color: '#fffde7',
 		exercises: 'test',
 		alternative: 'test2',

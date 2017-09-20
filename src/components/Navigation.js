@@ -7,7 +7,7 @@ export default (props) => {
     return (
         <Navbar>
           <Contain>
-            {location.pathname !== '/' ? <BackButton onClick={history.goBack}>{"<"}</BackButton> : null}
+            {location.pathname !== '/' ? <BackButton onClick={history.goBack}><i className="fa fa-angle-left" style={{color: 'white', fontSize: 35}} aria-hidden="true"></i></BackButton> : null}
             <Header>
               {LocationHeader(location.pathname)}
             </Header>
@@ -53,6 +53,8 @@ const Contain = styled.div`
 const Header = styled.h4`
   margin-top: 12px;
   font-size: 24px;
+  letter-spacing: 2px;
+  font-weight: 900;
   color: white;
   text-align: center;
   height: inherit;
