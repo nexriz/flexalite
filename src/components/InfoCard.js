@@ -19,8 +19,8 @@ const Content = styled.div`
 const InfoCard = styled.div`
     margin: auto;
     max-width: 400px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     min-height: 200px;
     border-radius: 5px;
     overflow: scroll;

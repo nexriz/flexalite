@@ -73,7 +73,7 @@ const CardList = SortableContainer(({cards, history}) => {
 			    width='auto'
 			    height={window.innerHeight - 100}
 			    itemCount={cards.length}
-			    itemSize={210}
+			    itemSize={220}
 			    scrollDirection='vertical'
 			    renderItem={({index, style}) => <Card history={history} style={style} key={`item-${index}`} index={index} myKey={index} props={cards[index]} />}
 		    />

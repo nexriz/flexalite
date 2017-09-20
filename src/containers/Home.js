@@ -22,7 +22,7 @@ export default class Home extends React.Component {
 
     return (
     <ThemeProvider theme={theme}>
-      <Container style={{height: `${window.innerHeight - 50}px`}}>
+      <Container style={{height: `${window.outerHeight - 50}px`}}>
         <Helmet>
           <title>Flexa Lite - Hem</title>
           <meta name="" content="" />
